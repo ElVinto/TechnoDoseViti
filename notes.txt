@@ -1,0 +1,11 @@
+
+
+
+
+# CLient
+sudo npm i -g @vue/cli
+vue create client
+npm install bootstrap-vue bootstrap axios vuex leaflet vue2-leaflet vue-router
+
+# handle Chartjs  (not necesary for this project)
+npm install vue-chartjs chart.js --save
