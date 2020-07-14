@@ -33,7 +33,7 @@ export default {
 
 <style>
 #app {
-  padding: 1px;
+ padding: 2px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;

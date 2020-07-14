@@ -1,9 +1,10 @@
 <template>
-    <div v-if="$store.getters.getDataIsLoaded">
-        <div id="parcelSetterView" >
-            <div id="parcelSetter">
-                <b >Choisissez une parcelle : </b>
-                <select v-model="selectedParcelName" class="custom-select"
+    
+
+        <div id="parcelSetterView" v-if="$store.getters.getDataIsLoaded" style="margin:10px;">
+            <div id="parcelSetter" style="margin-bottom:10px">
+                <b >La parcelle : </b>
+                <select v-model="selectedParcelNameD" class="custom-select"
                 style="width:auto;">
                 <option
                     v-for="(parcelName, index) in $store.getters.getParcelNames"
@@ -18,21 +19,20 @@
                 :zoom="currentZoom"
                 :center="currentCenter"
                 :options="mapOptions"
-                style="height: 500px;"
+                style="height: 500px;width:auto;"
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
-                <l-polygon
-                    :lat-lngs="$store.getters.getSelectedParcel.area"
+               <l-polygon
+                    :lat-lngs="$store.getters.getSelectedParcelD.area"
                     color="green"
                 >
-                    <l-popup :content="selectedParcelName" />
+                    <l-popup :content="selectedParcelNameD" />
                 </l-polygon>
                 
             </l-map>
         </div>
-
-
-    </div>
+          
+   
 </template>
 <script>
 
@@ -50,9 +50,9 @@ export default {
 
     data() {
         return {
-            selectedParcelName: this.$store.state.selectedParcelName,
+            selectedParcelNameD: this.$store.state.selectedParcelNameD,
 
-            // url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+           // url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
             // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors', 
             attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
@@ -65,16 +65,20 @@ export default {
     },
 
 
-    watch: {
-        selectedParcelName : function(val){
-            this.$store.commit("setSelectedParcelName", val);
+   watch: {
+        selectedParcelNameD : function(val){
+            this.$store.commit("setSelectedParcelNameD", val);
         },
-
     },
 
 }
 </script>
 <style scoped>
+
+.global{height: auto;}
+
+#droite{grid-area:dr;}
+
 
 p{
     text-align: center;
@@ -83,32 +87,6 @@ p{
 #parcelSetterView{
     text-align: center;
     padding: 10px;
-}
-
-.phenoPhaseSetterView{text-align: center;margin-left: auto;margin-right: auto;margin-top:20px}
-p{background-color: black;color: blanchedalmond;
-    text-align: center;
-}
-img{max-width: 300px;max-height: 300px;}
-.phenoPhaseSetterView {grid-area: dv1;margin-top: 10px;}
-#title1{grid-area: ti1;text-align: center;}
-#menudv1 {grid-area: mdv1;text-align: center;margin-left: auto;margin-right: auto;}
-#iconedebut{width: 100%;height: 100%;}
-#iconemilieu{width: 100%;height: 100%;}
-#iconefin{width: 100%;height: 100%;}
-#btndebut{grid-area: btndb;width: auto;height: auto;margin: 40px;}
-#btnmilieu{grid-area: btnml;width: auto;height: auto;margin: 40px;}
-#btnfin{grid-area: btnfn;width: auto;height: auto;margin: 40px;}
-
-
-#menudv1{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-rows: repeat(1,1fr);
-  grid-template-areas:
-    "btndb btnml btnfn";
 }
 
 </style>

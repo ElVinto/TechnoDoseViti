@@ -5,6 +5,9 @@
       <router-link to="/scenario" class="nav-link"> Scénarios</router-link>
       <router-link to="/morpho" class="nav-link"> Caractéristiques morphologiques</router-link>
       <router-link to="/pulve" class="nav-link"> Recommandations </router-link>
+      <router-link to="/test1" class="nav-link"> test1</router-link>
+      <router-link to="/test2" class="nav-link"> test2 </router-link>
+      <router-link to="/test3" class="nav-link"> test3 </router-link>
       
     </div>
 

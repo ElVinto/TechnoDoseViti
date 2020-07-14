@@ -39,15 +39,18 @@ export default {
    
     data() {
         return {
-            selectedPhenoPhase:this.$store.state.selectedPhenoPhase,
+            selectedPhenoPhase:this.$store.state.selectedPhenoPhase,   
         }
     },
 
-    watch: {
-        selectedPhenoPhase: function(val) {
+ watch: {
+        selectedPhenoPhase : function(val){
+          console.log(this.$selectedPhenoPhase)
             this.$store.commit("setSelectedPhenoPhase", val);
-        }
+        },
+
     },
+  
 
 }
 </script>
