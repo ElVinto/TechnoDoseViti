@@ -13,7 +13,7 @@
                     {{ parcelName }}
                 </option>
                 </select>
-            </div>
+            </div><br>
             <l-map 
                 :zoom="currentZoom"
                 :center="currentCenter"

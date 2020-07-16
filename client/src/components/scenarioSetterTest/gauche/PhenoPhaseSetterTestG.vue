@@ -1,35 +1,35 @@
 <template>
-    
+    <div  v-if="$store.getters.getDataIsLoaded">
         <div id="gauche">
           <div class="phenoPhaseSetterView">
             <b>Un stade phénologique: </b>
-            <select id="selectGauche" @click="selectGauche" v-model="selectedPhenoPhaseG" class="custom-select"
+            <select id="selectGauche" @click="selectGauche" 
+            v-model="selectedPhenoPhaseG" class="custom-select"
             style="width:auto;">
-              <option
-                v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
-                v-bind:key="index"
-                v-bind:value="phenoPhase"
-              >{{ phenoPhase }}
-              </option>
+                <option
+                  v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
+                  v-bind:key="index"
+                  v-bind:value="phenoPhase">{{ phenoPhase }}
+                </option>
             </select>
 
-            <div id="menudv1"  style="width:auto;margin-top:10px;" >
-        <div id="btndebutG">
-          <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:80px;height:auto;"></b-button>
-          <b-tooltip target="iconedebut">Debut</b-tooltip>
+          <div id="menudv1"  style="width:auto;margin-top:10px;" >
+              <div id="btndebutG">
+                  <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:80px;height:auto;"></b-button>
+                  <b-tooltip target="iconedebut">Debut</b-tooltip>
+              </div>
+              <div id="btnmilieuG" style="display:none;">
+                  <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:80px;height:auto;"></b-button>
+                  <b-tooltip target="iconemilieu">Milieu</b-tooltip>
+              </div>
+              <div id="btnfinG" style="display:none;">
+                  <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:80px;height:auto;"></b-button>
+                  <b-tooltip target="iconefin">Fin</b-tooltip>
+              </div> 
+          </div>
+          </div>
         </div>
-        <div id="btnmilieuG" style="display:none;">
-          <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:80px;height:auto;"></b-button>
-          <b-tooltip target="iconemilieu">Milieu</b-tooltip>
-        </div>
-        <div id="btnfinG" style="display:none;">
-          <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:80px;height:auto;"></b-button>
-          <b-tooltip target="iconefin">Fin</b-tooltip>
-        </div> 
-      </div>
-        </div>
-        </div>
-
+    </div>
         
 
 

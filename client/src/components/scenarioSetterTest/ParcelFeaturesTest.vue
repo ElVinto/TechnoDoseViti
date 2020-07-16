@@ -1,12 +1,12 @@
 <template>
-    <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
+    <div v-if="$store.getters.getDataIsLoaded" style="margin:20px">
             
         <div class="row" >
             <l-map 
                 :zoom="currentZoom"
                 :center="currentCenter"
                 :options="mapOptions"
-                style="height: 300px; "
+                style="height: 400px; "
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <div

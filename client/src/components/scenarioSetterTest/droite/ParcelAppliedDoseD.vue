@@ -16,7 +16,7 @@
                 :zoom="currentZoom"
                 :center="currentCenter"
                 :options="mapOptions"
-                style="height: 300px; "
+                style="height: 400px; "
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <div
@@ -89,7 +89,7 @@
                                 </tr>
                                 <tr>
                                     <th>Dose Moyenne</th>
-                                    <td>{{$store.getters.getSelectedParcelD.stat[selectedFeature].min}}</td>
+                                    <td>a definir</td>
                                 </tr>
                         </tbody> 
                         </table>

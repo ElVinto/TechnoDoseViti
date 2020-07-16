@@ -2,54 +2,54 @@
 <div>
 <div><hr><h2>Comparaison des caractéristiques morphologique</h2><hr></div>
     <div  class="row">
-        
-             <div class="col-md-2" style="margin-top:80px;">
-                <div id="parcelSetterView" >
-                    <div id="parcelSetter" style="margin-bottom:10px">
-                        <b >Choisissez une parcelle : </b>
-                        <select v-model="selectedParcelNameG" class="custom-select" style="width:auto;">
-                            <option
-                            v-for="(parcelName, index) in $store.getters.getParcelNames"
-                            v-bind:key="index"
-                            v-bind:value="parcelName">{{ parcelName }}
-                            </option>
-                        </select>
-                    </div>
-                </div>    
-                <div id="phenoG"><PhenoPhaseSetterTestG></PhenoPhaseSetterTestG></div>  
-            </div>
+        <div class="col-md-6" style="border-style: ridge;">
+            <div  class="row">
+                <div class="col-md-4" style="background-color:#eceff1 ;">
+                 <h5 style="margin-top:20px">Choisissez :</h5><br>
+                    <div id="parcelSetterView" >
+                        <div id="parcelSetter" style="margin-bottom:10px">
+                            <b >Choisissez une parcelle : </b>
+                            <select v-model="selectedParcelNameG" class="custom-select" style="width:auto;">
+                                <option
+                                v-for="(parcelName, index) in $store.getters.getParcelNames"
+                                v-bind:key="index"
+                                v-bind:value="parcelName">{{ parcelName }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>    
+                    <div id="phenoG"><PhenoPhaseSetterTestG></PhenoPhaseSetterTestG></div>  
+                </div>
                <hr>
-            <div class="col-md-4">
-                <div id="parcelG"><ParcelFeaturesTestG v-bind:feat="height"></ParcelFeaturesTestG></div>  
+                <div class="col-md-8">
+                    <div id="parcelG"><ParcelFeaturesTestG v-bind:feat="height"></ParcelFeaturesTestG></div>  
+                </div> 
             </div> 
- 
-            <div class="col-md-4">
-                <div id="parcelD"><ParcelFeaturesTestD v-bind:feat="height"></ParcelFeaturesTestD></div>  
-            </div>
-              <hr>          
-            <div class="col-md-2" style="margin-top:80px;">
-
-            <div id="parcelSetterView" >
-                    <div id="parcelSetter" style="margin-bottom:10px">
-                        <b >Choisissez une parcelle : </b>
-                        <select v-model="selectedParcelNameD" class="custom-select" style="width:auto;">
-                            <option
-                            v-for="(parcelName, index) in $store.getters.getParcelNames"
-                            v-bind:key="index"
-                            v-bind:value="parcelName">{{ parcelName }}
-                            </option>
-                        </select>
-                    </div>
-                </div>    
-                <div id="phenoD"><PhenoPhaseSetterTestD></PhenoPhaseSetterTestD></div>
-               
+         </div>
+        <div class="col-md-6" style="border-style: ridge;">
+            <div  class="row"> 
+                <div class="col-md-8">
+                    <div id="parcelD"><ParcelFeaturesTestD v-bind:feat="height"></ParcelFeaturesTestD></div>  
+                </div>
+                     
+                <div class="col-md-4" style="background-color:#eceff1 ;" >
+                 <h5 style="margin-top:20px">Choisissez :</h5><br>
+                    <div id="parcelSetterView" >
+                        <div id="parcelSetter" style="margin-bottom:10px">
+                            <b >Choisissez une parcelle : </b>
+                            <select v-model="selectedParcelNameD" class="custom-select" style="width:auto;">
+                                <option
+                                v-for="(parcelName, index) in $store.getters.getParcelNames"
+                                v-bind:key="index"
+                                v-bind:value="parcelName">{{ parcelName }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>    
+                    <div id="phenoD"><PhenoPhaseSetterTestD></PhenoPhaseSetterTestD></div>
+                </div> 
             </div> 
-
-            
-           
-             
-
-        
+        </div>   
      </div> 
     </div> 
 </template>

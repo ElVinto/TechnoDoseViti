@@ -2,8 +2,8 @@
     <div v-if="$store.getters.getDataIsLoaded">
 
         <div class="phenoPhaseSetterView">
-            <b>Choisissez un stade phénologique : </b>
-            <select v-model="selectedPhenoPhase" class="custom-select"
+            <b>Choisissez un stade phénologique : </b><br>
+            <select v-model="selectedPhenoPhase" @click="select" class="custom-select"
             style="width:auto;">
               <option
                 v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
@@ -15,11 +15,11 @@
             </select>
 
             <div id="menudv1">
-        <div id="btndebut">
+        <div id="btndebut" style="display:none;">
           <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p>Debut</p><img src="../../assets/debut.png" style="width:200px;height:auto;"></b-button>
           <b-tooltip target="iconedebut">Debut</b-tooltip>
         </div>
-        <div id="btnmilieu">
+        <div id="btnmilieu" style="display:none;">
           <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p>Milieu</p><img src="../../assets/milieu.png" style="width:200px;height:auto;"></b-button>
           <b-tooltip target="iconemilieu">Milieu</b-tooltip>
         </div>
@@ -42,6 +42,34 @@ export default {
             selectedPhenoPhase:this.$store.state.selectedPhenoPhase,   
         }
     },
+
+    methods: {
+
+
+select(){
+   
+if(this.selectedPhenoPhase === 'Debut'){
+
+document.getElementById('btndebut').style.display='block';
+document.getElementById('btnmilieu').style.display='none';
+document.getElementById('btnfin').style.display='none';}
+
+else if(this.selectedPhenoPhase === 'Milieu'){
+
+document.getElementById('btnmilieu').style.display='block';
+document.getElementById('btndebut').style.display='none';
+document.getElementById('btnfin').style.display='none';}
+
+else if (this.selectedPhenoPhase === 'Fin'){
+document.getElementById('btnfin').style.display='block';
+document.getElementById('btndebut').style.display='none';
+document.getElementById('btnmilieu').style.display='none';
+}
+
+
+}
+    
+},
 
  watch: {
         selectedPhenoPhase : function(val){
@@ -70,17 +98,4 @@ img{max-width: 300px;max-height: 300px;}
 #btndebut{grid-area: btndb;width: auto;height: auto;margin: 40px;}
 #btnmilieu{grid-area: btnml;width: auto;height: auto;margin: 40px;}
 #btnfin{grid-area: btnfn;width: auto;height: auto;margin: 40px;}
-
-
-#menudv1{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-rows: repeat(1,1fr);
-  grid-template-areas:
-    "btndb btnml btnfn";
-}
-
-
 </style>

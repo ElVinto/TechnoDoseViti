@@ -1,9 +1,14 @@
 <template>
     <div v-if="$store.getters.getDataIsLoaded" style="margin:10px;">
 
-        <div class="row" style="height:40px;text-align:center;" >
+        <div class="row" style="height:40px; " >
             <p>
-                Dose appliquée (en % de la dose authorisée)
+                Dose appliquée
+            </p>
+        </div>
+        <div class="row" style="height:50px">
+            <p>
+                (en % de la dose authorisée) 
             </p>
         </div>
         
@@ -58,37 +63,37 @@
         </div><br>
 
         <div>
-                       <h5>Tableau récapitulatif </h5> 
-                        <table class="table table-striped">
-                         <thead class="thead-dark">
-                                <tr>
-                                    <th>#</th>
+                <h5>Tableau récapitulatif </h5> 
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
                                     <th>Value</th>
-                                </tr>
-                         </thead>
-                         <tbody>       
-                                <tr>
-                                    <th>Parcel</th>
-                                    <td>{{$store.state.selectedParcelNameG}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Actionneur</th>
-                                    <td>{{$store.state.selectedActuatorG}}</td>
-                                </tr>
-                                <tr>
-                                    <th>stade.phéno</th>
-                                    <td>{{$store.state.selectedPhenoPhaseG}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Hypothése</th>
-                                    <td>{{$store.state.selectedHypothesisG}}</td>
-                                </tr>
-                                <tr>
-                                    <th>Dose Moyenne</th>
-                                    <td>{{$store.state.selectedHypothesisG}}</td>
-                                </tr>
+                            </tr>
+                        </thead>
+                        <tbody>       
+                             <tr>
+                                <th>Parcel</th>
+                                <td>{{$store.state.selectedParcelNameG}}</td>
+                            </tr>
+                            <tr>
+                                <th>Actionneur</th>
+                                <td>{{$store.state.selectedActuatorG}}</td>
+                            </tr>
+                            <tr>
+                                <th>stade.phéno</th>
+                                <td>{{$store.state.selectedPhenoPhaseG}}</td>
+                            </tr>
+                            <tr>
+                                <th>Hypothése</th>
+                                <td>{{$store.state.selectedHypothesisG}}</td>
+                            </tr>
+                            <tr>
+                                <th>Dose Moyenne</th>
+                                <td>a definir</td>
+                            </tr>
                         </tbody> 
-                        </table>
+                    </table>
         </div> 
     </div>
 </template>
