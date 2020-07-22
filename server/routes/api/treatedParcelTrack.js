@@ -6,8 +6,6 @@ var TreatedParcel = require('./../../services/TreatedParcel.js')
 // POST
 
 
-
-
 router.post('/treatedParcel', async (req, res) => {
 
     console.log(req.body)
