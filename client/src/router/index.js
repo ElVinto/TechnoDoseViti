@@ -5,7 +5,9 @@ import Welcome from '../components/Welcome';
 import Morpho from '../components/morphoFeatures_components/MorphoFeatures';
 import ScenarioSetter from '../components/scenarioSetter_components/ScenarioSetter';
 import PulveRecommendation from '../components/pulveRecommendation_components/PulveRecommendation';
-
+import Test1 from '../components/scenarioSetterTest/Test1.vue';
+import Test2 from '../components/scenarioSetterTest/Test2';
+import Test3 from '../components/Test3';
 
 
 Vue.use(Router)
@@ -19,7 +21,22 @@ export default new Router({
       component: Welcome
     },
 
+{
+      path: '/test1',
+      name: 'test1',
+      component: Test1
+    },
+    {
+      path: '/test2',
+      name: 'test2',
+      component: Test2
+    },
 
+    {
+      path: '/test3',
+      name: 'test3',
+      component: Test3
+    },
     {
       path: '/scenario',
       name: 'scenario',

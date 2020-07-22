@@ -9,6 +9,10 @@
 
         <hr/>
 
+        <HypotheseSetter></HypotheseSetter>
+
+        <hr/>
+
         <ParcelSetter></ParcelSetter>
 
 
@@ -28,6 +32,7 @@
 import ParcelSetter from './ParcelSetter'
 import ActuatorSetter from './ActuatorSetter'
 import PhenoPhaseSetter from './PhenoPhaseSetter'
+import HypotheseSetter from './HypotheseSetter'
 
 
 export default {
@@ -35,7 +40,7 @@ export default {
         ParcelSetter,
         ActuatorSetter,
         PhenoPhaseSetter,
-        
+        HypotheseSetter
     },
     
 }
