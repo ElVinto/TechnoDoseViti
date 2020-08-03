@@ -8,10 +8,24 @@
     
  
   <div id="title" >
-    <router-link to="/CaractParcels" class="text-white"> <h1>Démonstrateur TechnodoseViti</h1></router-link>
-    
+    <router-link to="/CaractParcels" class="text-white"> <h1>TechnodoseViti</h1></router-link>
   </div>
-     
+
+  <div id="btnScenario" style="width: auto; opacity:80%;">
+    <b-button to="/CaractParcels" variant="dark" style="width: auto;">
+      <!-- <img src="images/scenario.png"/> -->
+      <!-- <br> -->
+      <h3>Démonstrateur</h3>
+    </b-button>  
+    <br>   
+  </div>
+
+  <div id="btnGuide">
+     <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer style="opacity:80%">
+        <!-- <img src="images/guid.png"/> -->
+        Mode d'emploi
+    </b-button>
+  </div>
     
 <hr>
 	
@@ -38,20 +52,17 @@
     
 
 
-    <!-- <div id="btnScenario" style="width: auto; opacity:90%;">
-    <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Commencer</b></b-button>     
-    </div> -->
+    
 
 
   
-	<div id="btnGuide">
-     <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer style="opacity:80%">
-        <img src="images/guid.png"/><br>Mode d'emploi</b-button>
-     </div>
+	
     <b-sidebar id="sidebar-footer" aria-label="Sidebar with custom footer" no-header shadow>
+      
       <template v-slot:footer="{ hide }">
         <b-button size="sm" @click="hide">Fermer</b-button>
       </template>
+
       <div class="px-3 py-2" >
         
          <h5>Bienvenue sur l'application </h5><br>
@@ -136,7 +147,7 @@ export default {
 
 #objective {
   grid-column: 2/5;
-  grid-row: 4/6;
+  grid-row: 5/6;
 }
 
 #btnGuide {

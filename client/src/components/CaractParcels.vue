@@ -37,21 +37,21 @@
                         <div id="btndebut">
                             <b-button id="iconedebut" variant="outline-primary" style="width:auto;" >
                             <p style="font-size:13px">Debut</p>
-                            <img src="../assets/debut.png" style="width:80px;height:auto;">
+                            <img src="../assets/debut.png" style="width:150px;height:auto;">
                             </b-button>
                             <b-tooltip target="iconedebut">Debut</b-tooltip>
                         </div>
                         <div id="btnmilieu" style="display:none;">
                             <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" >
                             <p style="font-size:13px">Milieu</p>
-                            <img src="../assets/milieu.png" style="width:80px;height:auto;">
+                            <img src="../assets/milieu.png" style="width:150px;height:auto;">
                             </b-button>
                             <b-tooltip target="iconemilieu">Milieu</b-tooltip>
                         </div>
                         <div id="btnfin" style="display:none;">
                             <b-button id="iconefin"  variant="outline-primary" style="width:auto;">
                             <p style="font-size:13px">Fin</p>
-                            <img src="../assets/fin.png" style="width:80px;height:auto;">
+                            <img src="../assets/fin.png" style="width:150px;height:auto;">
                             </b-button>
                             <b-tooltip target="iconefin">Fin</b-tooltip>
                         </div> 
