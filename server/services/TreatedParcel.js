@@ -49,8 +49,8 @@ class TreatedParcel{
                             thickness: parseFloat(raw[3]),
                             density: parseFloat(raw[4]),
                             leafWallArea: parseFloat(raw[5]),
-                            authorisedDose: parseFloat(raw[6]),
-                            appliedDose: (raw.length>7? parseFloat(raw[7]):parseFloat(raw[6]))
+                            appliedDose: parseFloat(raw[6]),
+                            recupRate: (raw.length>7? parseFloat(raw[7]):0),
                         }
                         parcelTrack.push(enrichedPoint)
                     }

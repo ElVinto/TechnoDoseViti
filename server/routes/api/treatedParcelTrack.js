@@ -29,8 +29,9 @@ router.post('/treatedParcel', async (req, res) => {
     let thicknessStat = TreatedParcel.getStat(treatedParcelTrack,"thickness")
     let densityStat = TreatedParcel.getStat(treatedParcelTrack,"density")
     let leafWallAreaStat = TreatedParcel.getStat(treatedParcelTrack,"leafWallArea")
-    let authorisedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"authorisedDose")
     let appliedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"appliedDose")
+    let recupRateStat = TreatedParcel.getStat(treatedParcelTrack,"recupRate")
+    
 
     treatedParcel = {
         track: treatedParcelTrack,
@@ -42,8 +43,8 @@ router.post('/treatedParcel', async (req, res) => {
             leafWallArea: leafWallAreaStat,
             thickness: thicknessStat,
             density: densityStat,
-            authorisedDose: authorisedDoseStat,
-            appliedDose: appliedDoseStat
+            appliedDose: appliedDoseStat,
+            recupRate: recupRateStat,
         }
     }
 
@@ -79,8 +80,9 @@ router.post('/allTreatedParcels', async (req, res) => {
                 let thicknessStat = TreatedParcel.getStat(treatedParcelTrack,"thickness")
                 let densityStat = TreatedParcel.getStat(treatedParcelTrack,"density")
                 let leafWallAreaStat = TreatedParcel.getStat(treatedParcelTrack,"leafWallArea")
-                let authorisedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"authorisedDose")
                 let appliedDoseStat = TreatedParcel.getStat(treatedParcelTrack,"appliedDose")
+                let recupRateStat = TreatedParcel.getStat(treatedParcelTrack,"recupRate")
+                
             
                 treatedParcel = {
 
@@ -98,8 +100,8 @@ router.post('/allTreatedParcels', async (req, res) => {
                         leafWallArea: leafWallAreaStat,
                         thickness: thicknessStat,
                         density: densityStat,
-                        authorisedDose: authorisedDoseStat,
-                        appliedDose: appliedDoseStat
+                        appliedDose: appliedDoseStat,
+                        recupRateStat: recupRateStat,
                     }
                 }
 

@@ -8,7 +8,7 @@
         </div>
         <div class="row" style="height:50px">
             <p>
-                (en % de la dose authorisée) 
+                (en % de la dose homologuée) 
             </p>
         </div>
         
@@ -63,30 +63,28 @@
         </div><br>
 
         <div>
-          <h5>Tableau récapitulatif </h5> 
             <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Stat</th>
-                            <th>Debut</th>
-                            <th>Milieu</th>
-                            <th>Fin</th>
+                            <th>Tableau récapitulatif </th>
+                            <th>Moyenne</th>
                         </tr>
                     </thead>
+                    
                     <tbody>       
+
                         <tr>
-                            <th>% Dose appliquée</th>
-                            <th>Debut</th>
-                            <th>Milieu</th>
-                            <th>Fin</th>
+                            <th>Dose appliquée (%)</th>
+                            <td>{{getSelectedMeanAppliedDose()}}</td>
                         </tr>
-                        <tr>
-                            <th>Moyenne</th>
-                            <td>{{getSelectedMeanAppliedDose('Debut')}}</td>
-                            <td>{{getSelectedMeanAppliedDose('Milieu')}}</td>
-                            <td>{{getSelectedMeanAppliedDose('Fin')}}</td>
+                        
+                         <tr v-if="$store.state.selectedActuatorG === 'panneaurecuperateur'">
+                            <th> Taux de recupération (%) </th>
+                            <td>{{getSelectedMeanRecupRate()}}</td>
                         </tr>
+
                     </tbody> 
+                    
             </table>
         </div> 
     </div>
@@ -210,15 +208,19 @@ export default {
             switch(sentence){
                  
                 case "appliedDose": 
-                    translation = "% dose authorisée"; 
+                    translation = "% dose homologuée"; 
                     break; 
             }
             return translation
         },
 
-        getSelectedMeanAppliedDose(phenoPhase){
+        getSelectedMeanAppliedDose(){
+            const x  = this.$store.state.treatedParcels.get(this.$store.state.selectedParcelNameG).get(this.$store.state.selectedActuatorG).get(this.$store.state.selectedPhenoPhaseG).get(this.$store.state.selectedHypothesisG).stat.appliedDose.mean
+            return Math.round(x*10)/10
+        },
 
-            const x  = this.$store.state.treatedParcels.get(this.$store.state.selectedParcelNameG).get(this.$store.state.selectedActuatorG).get(phenoPhase).get(this.$store.state.selectedHypothesisG).stat.appliedDose.mean
+        getSelectedMeanRecupRate(){
+            const x  = this.$store.state.treatedParcels.get(this.$store.state.selectedParcelNameG).get(this.$store.state.selectedActuatorG).get(this.$store.state.selectedPhenoPhaseG).get(this.$store.state.selectedHypothesisG).stat.recupRate.mean
             return Math.round(x*10)/10
         }
         
