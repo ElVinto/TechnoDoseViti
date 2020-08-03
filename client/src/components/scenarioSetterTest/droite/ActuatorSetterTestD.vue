@@ -2,9 +2,8 @@
 
     <div v-if="$store.getters.getDataIsLoaded">
         <div class="actuatorSetterView">
-            <b> Un actionneur:</b>
-            <select @click="selectDroite()" id="selectDroite" 
-            v-model="selectedActuatorD" class="custom-select"
+                Actionneur :
+            <select id="selectDroite"  v-model="selectedActuatorD" class="custom-select"
             style="width:auto;">
                 <option
                     v-for="(actuator, index) in $store.getters.getActuators"
@@ -14,14 +13,15 @@
             </select>
 
             <div class="menuImg" style="margin-top:10px"> 
-                <div id="btnpul1D" >
-                    <b-button id="iconepul1" variant="outline-primary" ><p style="font-size:12px">Voûte pneumatique «4 mains,4 canons» Nouvelle génération</p><img src="../../../assets/pul1.png" style="width:150px;height:auto;"></b-button>
-                    <b-tooltip target="iconepul1">Voûte pneumatique «4 mains,4 canons» Nouvelle génération </b-tooltip>
-                </div>
-        
-                <div id="btnpul2D" style="display:none;">
+
+                <div id="btnpul2D" >
                     <b-button id="iconepul2"  variant="outline-primary"  ><p style="font-size:13px">Face par face Technologie jet porté</p><img src="../../../assets/pul2.png" style="width:150px;height:auto;"></b-button>
                     <b-tooltip target="iconepul2">Face par face Technologie jet porté </b-tooltip>
+                </div>
+
+                <div id="btnpul1D" style="display:none;">
+                    <b-button id="iconepul1" variant="outline-primary" ><p style="font-size:12px">Voûte pneumatique «4 mains,4 canons» Nouvelle génération</p><img src="../../../assets/pul1.png" style="width:150px;height:auto;"></b-button>
+                    <b-tooltip target="iconepul1">Voûte pneumatique «4 mains,4 canons» Nouvelle génération </b-tooltip>
                 </div>
         
                 <div id="btnpul3D" style="display:none;" >
@@ -45,31 +45,35 @@ export default {
         }
     },
 
+    mounted() {
+        this.selectedActuatorD = this.$store.state.selectedActuatorD
+        this.selectActuatorBtnDroite(this.selectedActuatorD)
+    },
+
     watch: {
         selectedActuatorD : function(val){
             this.$store.commit("setSelectedActuatorD", val);
+            this.selectActuatorBtnDroite(val)
         },
     },
     methods: {
-    selectDroite(){
-        console.log(this.selectedActuatorDroite);
-        if(this.selectedActuatorDroite === 'faceparface'){
-            document.getElementById('btnpul2D').style.display='block';
-            document.getElementById('btnpul1D').style.display='none';
-            document.getElementById('btnpul3D').style.display='none';}
-            
-        else if(this.selectedActuatorDroite === '4mains-4canons'){
-            document.getElementById('btnpul1D').style.display='block';
-            document.getElementById('btnpul2D').style.display='none';
-            document.getElementById('btnpul3D').style.display='none';}
+        selectActuatorBtnDroite(val){
+            console.log(val);
+            if(val === 'faceparface'){
+                document.getElementById('btnpul2D').style.display='block';
+                document.getElementById('btnpul1D').style.display='none';
+                document.getElementById('btnpul3D').style.display='none';}
+                
+            else if(val === 'voutepneumatique'){
+                document.getElementById('btnpul1D').style.display='block';
+                document.getElementById('btnpul2D').style.display='none';
+                document.getElementById('btnpul3D').style.display='none';}
 
-        else if (this.selectedActuatorDroite === 'jet-porte'){
-            document.getElementById('btnpul3D').style.display='block';
-            document.getElementById('btnpul2D').style.display='none';
-            document.getElementById('btnpul1D').style.display='none';
-            }
-
-
+            else if (val === 'panneaurecuperateur'){
+                document.getElementById('btnpul3D').style.display='block';
+                document.getElementById('btnpul2D').style.display='none';
+                document.getElementById('btnpul1D').style.display='none';
+                }
 
         }
             

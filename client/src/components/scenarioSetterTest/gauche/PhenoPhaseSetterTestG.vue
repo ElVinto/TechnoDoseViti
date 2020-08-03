@@ -2,8 +2,8 @@
     <div  v-if="$store.getters.getDataIsLoaded">
         <div id="gauche">
           <div class="phenoPhaseSetterView">
-            <b>Un stade phénologique: </b>
-            <select id="selectGauche" @click="selectGauche" 
+            Stade phénologique : 
+            <select id="selectGauche" 
             v-model="selectedPhenoPhaseG" class="custom-select"
             style="width:auto;">
                 <option
@@ -15,15 +15,15 @@
 
           <div id="menudv1"  style="width:auto;margin-top:10px;" >
               <div id="btndebutG">
-                  <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:80px;height:auto;"></b-button>
+                  <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:150px;height:auto;"></b-button>
                   <b-tooltip target="iconedebut">Debut</b-tooltip>
               </div>
               <div id="btnmilieuG" style="display:none;">
-                  <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:80px;height:auto;"></b-button>
+                  <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:150px;height:auto;"></b-button>
                   <b-tooltip target="iconemilieu">Milieu</b-tooltip>
               </div>
               <div id="btnfinG" style="display:none;">
-                  <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:80px;height:auto;"></b-button>
+                  <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:150px;height:auto;"></b-button>
                   <b-tooltip target="iconefin">Fin</b-tooltip>
               </div> 
           </div>
@@ -50,27 +50,26 @@ export default {
 methods: {
 
 
-selectGauche(){
+
+selectBtnPhenoPhaseG(val){
    
-if(this.selectedPhenoPhaseG === 'Debut'){
+    if(val === 'Debut'){
 
-document.getElementById('btndebutG').style.display='block';
-document.getElementById('btnmilieuG').style.display='none';
-document.getElementById('btnfinG').style.display='none';}
+    document.getElementById('btndebutG').style.display='block';
+    document.getElementById('btnmilieuG').style.display='none';
+    document.getElementById('btnfinG').style.display='none';}
 
-else if(this.selectedPhenoPhaseG === 'Milieu'){
+    else if(val === 'Milieu'){
 
-document.getElementById('btnmilieuG').style.display='block';
-document.getElementById('btndebutG').style.display='none';
-document.getElementById('btnfinG').style.display='none';}
+    document.getElementById('btnmilieuG').style.display='block';
+    document.getElementById('btndebutG').style.display='none';
+    document.getElementById('btnfinG').style.display='none';}
 
-else if (this.selectedPhenoPhaseG === 'Fin'){
-document.getElementById('btnfinG').style.display='block';
-document.getElementById('btndebutG').style.display='none';
-document.getElementById('btnmilieuG').style.display='none';
-}
-
-
+    else if (val === 'Fin'){
+        document.getElementById('btnfinG').style.display='block';
+        document.getElementById('btndebutG').style.display='none';
+        document.getElementById('btnmilieuG').style.display='none';
+    }
 }
     
 },
@@ -80,9 +79,17 @@ document.getElementById('btnmilieuG').style.display='none';
      
     },
 
-     watch: {
+    mounted() {
+        this.selectedPhenoPhaseG = this.$store.state.selectedPhenoPhaseG;
+        this.selectBtnPhenoPhaseG(this.selectedPhenoPhaseG)
+    },
+
+    
+
+    watch: {
         selectedPhenoPhaseG : function(val){
             this.$store.commit("setSelectedPhenoPhaseG", val);
+            this.selectBtnPhenoPhaseG(val)
         },
     },
     

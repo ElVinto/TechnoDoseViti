@@ -15,7 +15,7 @@
         <div class="row">
             <l-map 
                 :zoom="currentZoom"
-                :center="currentCenter"
+                :center= "$store.getters.getSelectedParcelG.centre"
                 :options="mapOptions"
                 style="height: 400px; "
             >
@@ -63,37 +63,31 @@
         </div><br>
 
         <div>
-                <h5>Tableau récapitulatif </h5> 
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>#</th>
-                                    <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>       
-                             <tr>
-                                <th>Parcel</th>
-                                <td>{{$store.state.selectedParcelNameG}}</td>
-                            </tr>
-                            <tr>
-                                <th>Actionneur</th>
-                                <td>{{$store.state.selectedActuatorG}}</td>
-                            </tr>
-                            <tr>
-                                <th>stade.phéno</th>
-                                <td>{{$store.state.selectedPhenoPhaseG}}</td>
-                            </tr>
-                            <tr>
-                                <th>Hypothése</th>
-                                <td>{{$store.state.selectedHypothesisG}}</td>
-                            </tr>
-                            <tr>
-                                <th>Dose Moyenne</th>
-                                <td>a definir</td>
-                            </tr>
-                        </tbody> 
-                    </table>
+          <h5>Tableau récapitulatif </h5> 
+            <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Stat</th>
+                            <th>Debut</th>
+                            <th>Milieu</th>
+                            <th>Fin</th>
+                        </tr>
+                    </thead>
+                    <tbody>       
+                        <tr>
+                            <th>% Dose appliquée</th>
+                            <th>Debut</th>
+                            <th>Milieu</th>
+                            <th>Fin</th>
+                        </tr>
+                        <tr>
+                            <th>Moyenne</th>
+                            <td>{{getSelectedMeanAppliedDose('Debut')}}</td>
+                            <td>{{getSelectedMeanAppliedDose('Milieu')}}</td>
+                            <td>{{getSelectedMeanAppliedDose('Fin')}}</td>
+                        </tr>
+                    </tbody> 
+            </table>
         </div> 
     </div>
 </template>
@@ -135,6 +129,8 @@ export default {
             }
         }
     },
+
+    
 
     methods: {
         
@@ -218,7 +214,15 @@ export default {
                     break; 
             }
             return translation
+        },
+
+        getSelectedMeanAppliedDose(phenoPhase){
+
+            const x  = this.$store.state.treatedParcels.get(this.$store.state.selectedParcelNameG).get(this.$store.state.selectedActuatorG).get(phenoPhase).get(this.$store.state.selectedHypothesisG).stat.appliedDose.mean
+            return Math.round(x*10)/10
         }
+        
+
     },
     
 }

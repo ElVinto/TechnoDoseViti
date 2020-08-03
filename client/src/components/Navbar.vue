@@ -1,13 +1,15 @@
 <template>
   <div class="topnav">
     <div >
-      <router-link to="/" class="nav-link"> Home</router-link>
-      <router-link to="/scenario" class="nav-link"> Scénarios</router-link>
+      <router-link to="/" class="nav-link"> Accueil</router-link>
+      <!-- <router-link to="/scenario" class="nav-link"> Scénarios</router-link>
       <router-link to="/morpho" class="nav-link"> Caractéristiques morphologiques</router-link>
-      <router-link to="/pulve" class="nav-link"> Recommandations </router-link>
-      <router-link to="/test1" class="nav-link"> test1</router-link>
-      <router-link to="/test2" class="nav-link"> test2 </router-link>
-      <router-link to="/test3" class="nav-link"> test3 </router-link>
+      <router-link to="/pulve" class="nav-link"> Recommandations </router-link> -->
+      
+      <router-link to="/CaractParcels" class="nav-link"> Caractéristiques des parcelles </router-link>
+      <router-link to="/CompCaract" class="nav-link"> Comparaison des caractéristiques  </router-link>
+      <router-link to="/CompScen" class="nav-link"> Comparaison des scénarios technologiques </router-link>
+      
       
     </div>
 

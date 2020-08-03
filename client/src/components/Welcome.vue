@@ -1,11 +1,15 @@
 <template>
   <div
     class="global"
-    style="background-image:url(images/AniceCheraiet-MasPiquet-LIDAR_c_INRAE-CaroleGiansily-4032x3024px.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px">
+    style="background-image:url(images/Image2.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px"
+    >
+  
+
+    
  
-  <div id="title">
-    <h1>La juste dose</h1>
-    <h3>Développement en cours</h3>
+  <div id="title" >
+    <router-link to="/CaractParcels" class="text-white"> <h1>Démonstrateur TechnodoseViti</h1></router-link>
+    
   </div>
      
     
@@ -16,25 +20,30 @@
       <div class="card-body" >
         <p>
         <center><b >
-          Déterminer la juste dose de phytosanitaire à appliquer en fonction du stade de végétation de la vigne et du pulvérisateur utilisé
-          </b></center>
+          Comparaison des doses de produits phytosanitaires à appliquer en fonction des caractéristiques de la végétation et de la performance du pulvérisateur : objectif pulvérisation de précision
+        </b></center>
         </p>
         <p > 
-          En fonction du type de pulvérisateur, du stade phénologique de la vigne, de la canopée, l’application détermine la juste dose de produit phytosanitaire à appliquer et la compare avec la dose maximale proposée par défaut. 
-          Les données d’entrées sont la parcelle, le cépage, le stade phénologique, l’applicateur utilisé.
+          Dans l’objectif d’optimiser l’utilisation des produits phytosanitaires en vigne, notre approche consiste à prendre en compte à la fois les caractéristiques structurales de la végétation et la typologie du pulvérisateur utilisé pour raisonner les doses à appliquer.
+          La stratégie mise en œuvre dans la thèse <b> « Modélisation expérimentale et statistique des relations entre caractéristiques morphologiques de la vigne et dépôts de pulvérisation : application à l’agriculture de précision » </b> 
+          s’appuie sur le développement de modèles de prédiction des quantités et profils de dépôts de produits phytosanitaires dans la végétation en fonction d’une part des paramètres végétatifs issus de  mesures effectuées avec un capteur LiDAR (hauteur, épaisseur et densité de végétation) et d’autre part de la performance du pulvérisateur.
+          Afin d’évaluer les perspectives de réduction des doses en viticulture, plusieurs scénarios technologiques intégrant différents pulvérisateurs et raisonnements de la dose appliquée sont comparés en termes d’économie d’intrants en appliquant les modèles.
         </p>
-        <p>Développeur(s) : Vincent Armant et Amin Ouail | Doctorant : Anice Cheraiet, ITAP, INRAE</p>
+
+        <p>Contacts : Anice Cheraiet anice.cheraiet@vignevin.com, Sebastien CODIS sebastien.codis@vignevin.com, ITAP, INRAE</p>
+
+        <p>Développeur(s) : Vincent Armant et Amin Ouail INRAE</p>
       </div>
     </div>
     
 
 
-    <div id="btnScenario" style="width: auto; opacity:90%;">
+    <!-- <div id="btnScenario" style="width: auto; opacity:90%;">
     <b-button to="/scenario" variant="dark" style="width: auto;"><img src="images/scenario.png"/><br><b>Commencer</b></b-button>     
-    </div>
+    </div> -->
 
 
-  <!--
+  
 	<div id="btnGuide">
      <b-button id="btnGuide" variant="dark" v-b-toggle.sidebar-footer style="opacity:80%">
         <img src="images/guid.png"/><br>Mode d'emploi</b-button>
@@ -44,12 +53,29 @@
         <b-button size="sm" @click="hide">Fermer</b-button>
       </template>
       <div class="px-3 py-2" >
-        <p>
+        
          <h5>Bienvenue sur l'application </h5><br>
+        
+
+        <p>
+          Les données présentées sont issues de l’exploitation Mas Piquet (commune de Grabels), domaine du lycée viticole de Montpellier.
+        </p>
+        <p>
+          Les données LIDAR ont été acquises à trois stades végétatifs (début, milieu et pleine végétation) sur trois parcelles de vigueur contrastée (Aglae (Marselan), Terre Blanche (Chardonnay) et Franquet (Cabernet Sauvignon)).
+        </p>
+        <p>
+          Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts au sein du couvert végétal pour trois typologies différentes de pulvérisateurs (une voûte pneumatique passée, tous les 4 rangs, un appareil face par face et un panneau récupérateur).
+        </p>
+        <p>
+          L’onglet « caractéristique morphologique » permet de visualiser et de comparer les paramètres végétatifs sur les trois parcelles aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
+        </p>
+        <p>
+          L’onglet « comparaison des scénarios technologiques » permet de choisir entre deux niveaux de risques en matière d’efficacité de la protection phytosanitaire (risqué ou sécurisé) et de visualiser de manière automatisée les pourcentages de la dose homologuée à appliquer pour les deux scénarios choisis.
+        </p>
 
       </div>
     </b-sidebar>
-  -->
+ 
 </div>
   
    
@@ -110,12 +136,12 @@ export default {
 
 #objective {
   grid-column: 2/5;
-  grid-row: 5/6;
+  grid-row: 4/6;
 }
 
 #btnGuide {
   grid-column: 3;
-  grid-row: 5;
+  grid-row: 3;
 }}
 
 

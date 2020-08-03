@@ -1,10 +1,8 @@
 <template>
-    <div v-if="$store.getters">
+    <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
             
         <div class="row" style="height:40px;margin-left:20px">
-            <center><p >
-                Caracteristique morphologique
-            </p></center>
+           <b> Caractéristique morphologique :</b>
         </div>
         <div class ="row" style="height:50px;margin-left:20px">
             <select v-model="selectedFeature" class="custom-select">
@@ -21,9 +19,9 @@
         <div class="row" style="margin-left:20px" >
             <l-map 
                 :zoom="currentZoom"
-                :center="currentCenter"
+                :center= "$store.getters.getSelectedParcelD.centre"
                 :options="mapOptions"
-                style="height: 300px; "
+                style="height: 400px; "
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <div

@@ -6,6 +6,7 @@
         -->
         
         <a href= "https://www.vignevin.com/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/ifv.png" class="icone"></i></a>
+        <a href= "http://www.acta.asso.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src="images/acta_logo.png" ></i></a>
         <a href= "https://www.hdigitag.fr/fr/ " target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src="images/logoDigitAg-reserve.png" ></i></a>
         <a href="http://www.inrae.fr" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo-INRAE_Transparent.png" ></i></a>
         <a href= "https://muse.edu.umontpellier.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo_MUSE.png"></i></a>

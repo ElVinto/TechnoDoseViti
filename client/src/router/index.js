@@ -5,9 +5,11 @@ import Welcome from '../components/Welcome';
 import Morpho from '../components/morphoFeatures_components/MorphoFeatures';
 import ScenarioSetter from '../components/scenarioSetter_components/ScenarioSetter';
 import PulveRecommendation from '../components/pulveRecommendation_components/PulveRecommendation';
-import Test1 from '../components/scenarioSetterTest/Test1.vue';
-import Test2 from '../components/scenarioSetterTest/Test2';
-import Test3 from '../components/Test3';
+import CompCaract from '../components/scenarioSetterTest/CompCaract';
+import CompScen from '../components/scenarioSetterTest/CompScen';
+import CaractParcels from '../components/CaractParcels';
+
+import LegalMentions from '../components/LegalMentions.vue';
 
 
 Vue.use(Router)
@@ -21,21 +23,27 @@ export default new Router({
       component: Welcome
     },
 
-{
-      path: '/test1',
-      name: 'test1',
-      component: Test1
-    },
     {
-      path: '/test2',
-      name: 'test2',
-      component: Test2
+      path: '/legalMentions',
+      name: 'LegalMentions',
+      component: LegalMentions
     },
 
     {
-      path: '/test3',
-      name: 'test3',
-      component: Test3
+      path: '/CompCaract',
+      name: 'ComparisonCaracteristics',
+      component: CompCaract
+    },
+    {
+      path: '/CompScen',
+      name: 'CompraisonScenarios',
+      component: CompScen
+    },
+
+    {
+      path: '/CaractParcels',
+      name: 'CaracteristicParcels',
+      component: CaractParcels
     },
     {
       path: '/scenario',

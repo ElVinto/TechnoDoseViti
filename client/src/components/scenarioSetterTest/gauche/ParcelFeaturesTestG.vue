@@ -1,10 +1,8 @@
 <template>
     <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
             
-        <div class="row" style="height:40px;">
-            <center><p style="text-align:center;">
-                Caracteristique morphologique
-            </p></center>
+        <div class="row" style="height:40px; text-align:center">
+                <b> Caractéristique morphologique :</b>
         </div>
         <div class ="row" style="height:50px">
             <select v-model="selectedFeature" class="custom-select">
@@ -21,9 +19,9 @@
         <div class="row" >
             <l-map 
                 :zoom="currentZoom"
-                :center="currentCenter"
+                :center= "$store.getters.getSelectedParcelG.centre"
                 :options="mapOptions"
-                style="height: 300px; "
+                style="height: 400px; "
             >
                 <l-tile-layer :url="url" :attribution="attribution" />
                 <div
@@ -95,7 +93,10 @@ export default {
             // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors', 
             attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
             currentZoom: 18,
+            
             currentCenter: latLng(43.658886799781214, 3.8291886498298466),
+            
+
             mapOptions: {
                 zoomSnap: 0.5,
             },
@@ -143,6 +144,7 @@ export default {
         // console.log("mounting ParcelFeatures")
         // console.log(this.feat)
          this.selectedFeature = this.feat;
+         this.currentCenter = this.$store.getters.getSelectedParcelG.centre;
     },
 
     methods: {

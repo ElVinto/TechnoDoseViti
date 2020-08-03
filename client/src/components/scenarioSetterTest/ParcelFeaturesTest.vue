@@ -4,7 +4,7 @@
         <div class="row" >
             <l-map 
                 :zoom="currentZoom"
-                :center="currentCenter"
+                :center="$store.getters.getSelectedParcel.centre"
                 :options="mapOptions"
                 style="height: 400px; "
             >

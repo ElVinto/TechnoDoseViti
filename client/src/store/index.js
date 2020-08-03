@@ -26,7 +26,7 @@ export default new Vuex.Store({
 
      selectedParcelName: "Aglae",
      selectedActuator: "faceparface",
-     selectedPhenoPhase: "Fin",
+     selectedPhenoPhase: "Debut",
      selectedHypothesis: "risque",
 
 
@@ -37,7 +37,7 @@ export default new Vuex.Store({
 
      selectedParcelNameD: "TerreBlanche",
      selectedActuatorD: "faceparface",
-     selectedPhenoPhaseD: "Milieu",
+     selectedPhenoPhaseD: "Debut",
      selectedHypothesisD: "risque",
      selectedFeatureD:"height"
 
@@ -74,9 +74,11 @@ export default new Vuex.Store({
          return state.treatedParcels.get(state.selectedParcelName).get(state.selectedActuator).get(state.selectedPhenoPhase).get(state.selectedHypothesis)
       },
 
+      
       getSelectedParcelG: (state) =>{
          return state.treatedParcels.get(state.selectedParcelNameG).get(state.selectedActuatorG).get(state.selectedPhenoPhaseG).get(state.selectedHypothesisG)
       },
+
 
       getSelectedParcelD: (state) =>{
          return state.treatedParcels.get(state.selectedParcelNameD).get(state.selectedActuatorD).get(state.selectedPhenoPhaseD).get(state.selectedHypothesisD)

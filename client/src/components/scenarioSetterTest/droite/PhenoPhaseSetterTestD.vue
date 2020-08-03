@@ -2,8 +2,8 @@
     
         <div id="Droite">
           <div class="phenoPhaseSetterView">
-            <b>Un stade phénologique: </b>
-            <select id="selectDroite" @click="selectDroite" v-model="selectedPhenoPhaseD" class="custom-select"
+            Stade phénologique : 
+            <select id="selectDroite" v-model="selectedPhenoPhaseD" class="custom-select"
             style="width:auto;">
               <option
                 v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
@@ -15,15 +15,15 @@
 
             <div id="menudv1"  style="width:auto;margin-top:10px;" >
         <div id="btndebutD">
-          <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:80px;height:auto;"></b-button>
+          <b-button id="iconedebut" variant="outline-primary" style="width:auto" ><p style="font-size:13px">Debut</p><img src="../../../assets/debut.png" style="width:150px;height:auto;"></b-button>
           <b-tooltip target="iconedebut">Debut</b-tooltip>
         </div>
         <div id="btnmilieuD" style="display:none;">
-          <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:80px;height:auto;"></b-button>
+          <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../../assets/milieu.png" style="width:150px;height:auto;"></b-button>
           <b-tooltip target="iconemilieu">Milieu</b-tooltip>
         </div>
         <div id="btnfinD" style="display:none;">
-          <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:80px;height:auto;"></b-button>
+          <b-button id="iconefin"  variant="outline-primary" style="width:auto;"><p style="font-size:13px">Fin</p><img src="../../../assets/fin.png" style="width:150px;height:auto;"></b-button>
           <b-tooltip target="iconefin">Fin</b-tooltip>
         </div> 
       </div>
@@ -47,27 +47,32 @@ export default {
         }
 },
 
+mounted() {
+        this.selectedPhenoPhaseD = this.$store.state.selectedPhenoPhaseD;
+        this.selectBtnPhenoPhaseD(this.selectedPhenoPhaseD)
+    },
+
 methods: {
 
 
-selectDroite(){
+selectBtnPhenoPhaseD(val){
    
-if(this.selectedPhenoPhaseD === 'Debut'){
+if(val === 'Debut'){
 
-document.getElementById('btndebutD').style.display='block';
-document.getElementById('btnmilieuD').style.display='none';
-document.getElementById('btnfinD').style.display='none';}
+  document.getElementById('btndebutD').style.display='block';
+  document.getElementById('btnmilieuD').style.display='none';
+  document.getElementById('btnfinD').style.display='none';}
 
-else if(this.selectedPhenoPhaseD === 'Milieu'){
+else if(val === 'Milieu'){
 
-document.getElementById('btnmilieuD').style.display='block';
-document.getElementById('btndebutD').style.display='none';
-document.getElementById('btnfinD').style.display='none';}
+  document.getElementById('btnmilieuD').style.display='block';
+  document.getElementById('btndebutD').style.display='none';
+  document.getElementById('btnfinD').style.display='none';}
 
-else if (this.selectedPhenoPhaseD === 'Fin'){
-document.getElementById('btnfinD').style.display='block';
-document.getElementById('btndebutD').style.display='none';
-document.getElementById('btnmilieuD').style.display='none';
+else if (val === 'Fin'){
+  document.getElementById('btnfinD').style.display='block';
+  document.getElementById('btndebutD').style.display='none';
+  document.getElementById('btnmilieuD').style.display='none';
 }
 
 
@@ -83,6 +88,7 @@ document.getElementById('btnmilieuD').style.display='none';
      watch: {
         selectedPhenoPhaseD : function(val){
             this.$store.commit("setSelectedPhenoPhaseD", val);
+            this.selectBtnPhenoPhaseD(val);
         },
     },
     

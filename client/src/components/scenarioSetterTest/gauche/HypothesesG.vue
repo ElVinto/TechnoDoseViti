@@ -2,7 +2,7 @@
     
         
        <div class="hypothesesSetterView" style="margin-top:20px;">
-            <b>Une hypothése G: </b><br>
+            Hypothèse :<br>
             <select  v-model="selectedHypothesisG" class="custom-select"
             style="width:auto;margin-top:10px;">
               <option
