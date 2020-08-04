@@ -39,26 +39,25 @@
                 </div>
             </l-map>
 
-            <div class="row" style="text-align:center; margin:10px;" >
+            <div class ="row" style="text-align:center; margin:10px ; font-size:.6em;" >
                 <span>
                     légende:
                 </span>
                 <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].min,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelG.stat[selectedFeature].min}%`}}
+                    {{`${ getValG(selectedFeature,'min')} ${getUnit(selectedFeature)}`}}
                 </b-progress-bar>
                 <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].q25,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelG.stat[selectedFeature].q25}%`}}
+                    {{`${ getValG(selectedFeature,'q25' )} ${getUnit(selectedFeature)}`}}
                 </b-progress-bar>
                 <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].median,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelG.stat[selectedFeature].median}%`}}
+                    {{`${ getValG(selectedFeature,'median' )} ${getUnit(selectedFeature)}`}}
                 </b-progress-bar>
                 <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].q75,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelG.stat[selectedFeature].q75}%`}}
+                    {{`${ getValG(selectedFeature,'q75' )} ${getUnit(selectedFeature)}`}}
                 </b-progress-bar>
                 <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].max,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelG.stat[selectedFeature].max}%`}}
+                    {{`${ getValG(selectedFeature,'max' )} ${getUnit(selectedFeature)}`}}
                 </b-progress-bar>
-
             </div>
         </div><br>
 
@@ -199,6 +198,43 @@ export default {
 
         getPopopContent(segment,feature){
             return `${this.translateFr(feature)}: ${segment[feature]} % `
+        },
+
+                getValG(feature, meas){
+
+            let val = this.$store.getters.getSelectedParcelG.stat[feature][meas];
+            
+            // console.log(`getVal(${feature},${meas}): ${val}`)
+            
+            if(val<0)
+                val = 0;
+            if(feature=== 'density' || feature === 'appliedDose'){
+                val= Math.round(val);
+            }
+            return val;
+
+        },
+
+        getUnit(feature){
+            let unit =''
+            switch(feature){
+                case "height": 
+                    unit = "m"; 
+                    break;
+                case "thickness": 
+                    unit = "m"; 
+                    break;
+                case "density": 
+                    unit = "%"; 
+                    break;
+                case "leafWallArea": 
+                    unit = "m\u00B2/ha"; 
+                    break; 
+                case "appliedDose": 
+                    unit = "%"; 
+                    break; 
+            }
+            return unit
         },
 
         

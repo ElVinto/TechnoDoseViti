@@ -43,24 +43,24 @@
             </l-map>
         </div>
 
-        <div class="row" style="text-align:center; margin:10px" >
+        <div class ="row" style="text-align:center; margin:10px ; font-size:.6em;" >
             <span>
                 légende:
             </span>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].min,selectedFeature)}">
-                {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].min}${getUnit(selectedFeature)}`}}
+                {{`${ getValD(selectedFeature,'min')} ${getUnit(selectedFeature)}`}}
             </b-progress-bar>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q25,selectedFeature)}">
-                {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].q25}${getUnit(selectedFeature)}`}}
+                {{`${ getValD(selectedFeature,'q25' )} ${getUnit(selectedFeature)}`}}
             </b-progress-bar>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].median,selectedFeature)}">
-                {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].median}${getUnit(selectedFeature)}`}}
+                {{`${ getValD(selectedFeature,'median' )} ${getUnit(selectedFeature)}`}}
              </b-progress-bar>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q75,selectedFeature)}">
-                {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].q75}${getUnit(selectedFeature)}`}}
+                {{`${ getValD(selectedFeature,'q75' )} ${getUnit(selectedFeature)}`}}
              </b-progress-bar>
             <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].max,selectedFeature)}">
-                {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].max}${getUnit(selectedFeature)}`}}
+                {{`${ getValD(selectedFeature,'max' )} ${getUnit(selectedFeature)}`}}
              </b-progress-bar>
         </div>
     
@@ -215,9 +215,27 @@ export default {
             if(feature==="track"){
                 return `(lat:${segment.orig.lat}, lng:${segment.orig.lng})`
             }else{
-                return `${this.translateFr(feature)}: ${segment[feature]} ${this.getUnit(feature)} `
+                let val = segment[feature];
+                if(val<0){
+                    val = 0;
+                }
+                return `${this.translateFr(feature)}: ${val} ${this.getUnit(feature)} `
             }
 
+        },
+
+        getValD(feature, meas){
+
+            let val = this.$store.getters.getSelectedParcelD.stat[feature][meas];
+            
+            // console.log(`getVal(${feature},${meas}): ${val}`)
+            
+            if(val<0)
+                val = 0;
+            if(feature=== 'density' || feature === 'appliedDose'){
+                val= Math.round(val);
+            }
+            return val;
         },
 
         getUnit(feature){
@@ -233,7 +251,7 @@ export default {
                     unit = "%"; 
                     break;
                 case "leafWallArea": 
-                    unit = "m2/ha"; 
+                    unit = "m\u00B2/ha"; 
                     break; 
                 case "appliedDose": 
                     unit = "%"; 
@@ -242,20 +260,22 @@ export default {
             return unit
         },
 
+        
+
         translateFr(sentence){
             let translation = sentence
             switch(sentence){
                 case "height": 
-                    translation = "hauteur"; 
+                    translation = "Hauteur de végétation"; 
                     break;
                 case "thickness": 
-                    translation = "épaisseur"; 
+                    translation = "Épaisseur de végétation"; 
                     break;
                 case "density": 
-                    translation = "densité végétation"; 
+                    translation = "Densité de végétation"; 
                     break;
                 case "leafWallArea": 
-                    translation = "Aire mur végétale"; 
+                    translation = "Surface de haie foliaire"; 
                     break; 
                 case "appliedDose": 
                     translation = "% dose authorisée"; 

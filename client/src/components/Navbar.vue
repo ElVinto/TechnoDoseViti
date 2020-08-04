@@ -1,14 +1,31 @@
 <template>
   <div class="topnav">
-    <div >
-      <router-link to="/" class="nav-link"> Accueil</router-link>
-      <!-- <router-link to="/scenario" class="nav-link"> Scénarios</router-link>
-      <router-link to="/morpho" class="nav-link"> Caractéristiques morphologiques</router-link>
-      <router-link to="/pulve" class="nav-link"> Recommandations </router-link> -->
+    <div class ="row">
+
       
-      <router-link to="/CaractParcels" class="nav-link"> Caractéristiques des parcelles </router-link>
-      <router-link to="/CompCaract" class="nav-link"> Comparaison des caractéristiques  </router-link>
-      <router-link to="/CompScen" class="nav-link"> Comparaison des scénarios technologiques </router-link>
+      <router-link to="/" class=" col-md-2 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" >
+            <b> <p class="text-center"> Accueil </p></b>
+      </router-link>
+      
+      
+      <div class = "col-md-6" style= "outline-style:solid;" >
+        <div class="row nav-link text-white" style="text-align:center;">
+          <b> Structure du végétal </b>
+        </div>
+        <div class = "row">
+          <router-link to="/CaractParcels" class="col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
+            <b> Variabilité intra-parcellaire </b> 
+          </router-link>
+          <router-link to="/CompCaract" class=" col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
+            <b> Variabilité inter-parcellaire </b> 
+          </router-link>
+        </div>
+      </div>
+
+      
+      <router-link to="/CompScen" class=" col-md-4 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
+        <b> Comparaison des scénarios technologiques </b> 
+      </router-link>
       
       
     </div>

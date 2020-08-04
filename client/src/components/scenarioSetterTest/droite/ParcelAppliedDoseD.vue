@@ -38,27 +38,26 @@
                 </div>
             </l-map>
 
-            <div class ="row" style="text-align:center; margin:10px;" >
-                <span>
-                    légende:
-                </span>
-                <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].min,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].min}%`}}
-                </b-progress-bar>
-                <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q25,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].q25}%`}}
-                </b-progress-bar>
-                <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].median,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].median}%`}}
-                </b-progress-bar>
-                <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q75,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].q75}%`}}
-                </b-progress-bar>
-                <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].max,selectedFeature)}">
-                    {{`${$store.getters.getSelectedParcelD.stat[selectedFeature].max}%`}}
-                </b-progress-bar>
-
-            </div>
+                   <div class ="row" style="text-align:center; margin:10px ; font-size:.6em;" >
+            <span>
+                légende:
+            </span>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].min,selectedFeature)}">
+                {{`${ getValD(selectedFeature,'min')} ${getUnit(selectedFeature)}`}}
+            </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q25,selectedFeature)}">
+                {{`${ getValD(selectedFeature,'q25' )} ${getUnit(selectedFeature)}`}}
+            </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].median,selectedFeature)}">
+                {{`${ getValD(selectedFeature,'median' )} ${getUnit(selectedFeature)}`}}
+             </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].q75,selectedFeature)}">
+                {{`${ getValD(selectedFeature,'q75' )} ${getUnit(selectedFeature)}`}}
+             </b-progress-bar>
+            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelD.stat[selectedFeature].max,selectedFeature)}">
+                {{`${ getValD(selectedFeature,'max' )} ${getUnit(selectedFeature)}`}}
+             </b-progress-bar>
+        </div>
         </div><br>
 
         <div>
@@ -204,7 +203,42 @@ export default {
             return `${this.translateFr(feature)}: ${segment[feature]} % `
         },
 
-        
+        getValD(feature, meas){
+
+            let val = this.$store.getters.getSelectedParcelD.stat[feature][meas];
+            
+            // console.log(`getVal(${feature},${meas}): ${val}`)
+            
+            if(val<0)
+                val = 0;
+            if(feature=== 'density' || feature === 'appliedDose'){
+                val= Math.round(val);
+            }
+            return val;
+        },
+
+               getUnit(feature){
+            let unit =''
+            switch(feature){
+                case "height": 
+                    unit = "m"; 
+                    break;
+                case "thickness": 
+                    unit = "m"; 
+                    break;
+                case "density": 
+                    unit = "%"; 
+                    break;
+                case "leafWallArea": 
+                    unit = "m\u00B2/ha"; 
+                    break; 
+                case "appliedDose": 
+                    unit = "%"; 
+                    break; 
+            }
+            return unit
+        },
+
 
         translateFr(sentence){
             let translation = sentence

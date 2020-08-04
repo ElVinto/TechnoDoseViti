@@ -91,57 +91,64 @@ import HypothesesD from './droite/HypothesesD'
 
 export default {
     data() {
-    return {
-        selectedParcelNameG: this.$store.state.selectedParcelNameG,
-        selectedParcelNameD: this.$store.state.selectedParcelNameD,
-            height:"height",
-            
-               fields: ['#', 'Valeur'],
-        itemsG: [
-          { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameG },
-          { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorG },
-          { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseG },
-          { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisG },
-          { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
-        ],
-        itemsD: [
-          { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameD },
-          { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorD },
-          { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseD },
-          { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisD },
-          { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
-        ],
-       
+        return {
+            selectedParcelNameG: this.$store.state.selectedParcelNameG,
+            selectedParcelNameD: this.$store.state.selectedParcelNameD,
+                height:"height",
+                
+                fields: ['#', 'Valeur'],
+            itemsG: [
+            { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameG },
+            { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorG },
+            { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseG },
+            { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisG },
+            { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
+            ],
+            itemsD: [
+            { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameD },
+            { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorD },
+            { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseD },
+            { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisD },
+            { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
+            ],
         }
-},
-
-
-methods: {
-
-    
-},
-
-components:{
-      ActuatorSetterTestD,
-      PhenoPhaseSetterTestD,
-      ParcelAppliedDoseD,
-      HypothesesD,
-     
-     ActuatorSetterTestG,
-      PhenoPhaseSetterTestG,
-      ParcelAppliedDoseG,
-      HypothesesG
     },
 
-watch: {
-      selectedParcelNameG : function(val){
-        this.$store.commit("setSelectedParcelNameG", val);
+    created() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
     },
-    selectedParcelNameD : function(val){
-        this.$store.commit("setSelectedParcelNameD", val);
+
+    mounted() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
     },
-       
-    },
+
+
+
+    components:{
+        ActuatorSetterTestD,
+        PhenoPhaseSetterTestD,
+        ParcelAppliedDoseD,
+        HypothesesD,
+        
+        ActuatorSetterTestG,
+        PhenoPhaseSetterTestG,
+        ParcelAppliedDoseG,
+        HypothesesG
+        },
+
+    watch: {
+        selectedParcelNameG : function(val){
+            this.$store.commit("setSelectedParcelNameG", val);
+        },
+        selectedParcelNameD : function(val){
+            this.$store.commit("setSelectedParcelNameD", val);
+        },
+        
+        },
     
 }
 </script>

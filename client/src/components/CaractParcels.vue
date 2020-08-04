@@ -62,22 +62,22 @@
         <hr>
         <div class="row" >
             <div class="col-md-6">
-            <h3>Densité végétation</h3>
+            <h3>Densité de végétation</h3>
                 <ParcelFeaturesTest v-bind:feat="density"></ParcelFeaturesTest>
             </div>
             <div class="col-md-6" >
-            <h3>Aire mur végétale</h3>
+            <h3>Surface de haie foliaire</h3>
                 <ParcelFeaturesTest v-bind:feat="leafWallArea"></ParcelFeaturesTest>
             </div>
         </div>
         <hr>
         <div class="row" >
             <div class="col-md-6">
-                 <h3>Hauteur</h3>
+                 <h3>Hauteur de végétation</h3>
                 <ParcelFeaturesTest v-bind:feat="height"></ParcelFeaturesTest>
             </div>
             <div class="col-md-6" >
-            <h3>Epaisseur</h3>
+            <h3>Épaisseur de végétation</h3>
                 <ParcelFeaturesTest v-bind:feat="thickness"></ParcelFeaturesTest>
             </div>
         </div>
@@ -100,11 +100,20 @@ export default {
         }
 },
 
-mounted() {
-    
-},
+    created() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
+        
+    },
 
-methods: {
+    mounted() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
+    },
+
+    methods: {
 
     selectIcone(val){
    

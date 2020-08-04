@@ -77,34 +77,47 @@ export default {
         selectedParcelNameD: this.$store.state.selectedParcelNameD,
         height:"height",    
         }
-},
-
-methods: {
-
-    
-},
-
-components:{
-      
-      PhenoPhaseSetterTestD,
-      ParcelFeaturesTestD,
-
-      PhenoPhaseSetterTestG,
-      ParcelFeaturesTestG,
-     
-     
     },
 
-watch: {
-    selectedParcelNameG : function(val){
-        this.$store.commit("setSelectedParcelNameG", val);
+    created() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
     },
 
-    selectedParcelNameD : function(val){
-        this.$store.commit("setSelectedParcelNameD", val);
+    mounted() {
+        if (!this.$store.getters.getDataIsLoaded) {
+            this.$router.push("/");
+        }
     },
-    
-}}
+
+    methods: {
+
+        
+    },
+
+    components:{
+        
+        PhenoPhaseSetterTestD,
+        ParcelFeaturesTestD,
+
+        PhenoPhaseSetterTestG,
+        ParcelFeaturesTestG,
+        
+        
+        },
+
+    watch: {
+        selectedParcelNameG : function(val){
+            this.$store.commit("setSelectedParcelNameG", val);
+        },
+
+        selectedParcelNameD : function(val){
+            this.$store.commit("setSelectedParcelNameD", val);
+        },
+        
+    }
+}
 </script>
 <style scoped>
 h2{margin-top:15px;background-color: grey;}

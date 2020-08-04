@@ -3,9 +3,6 @@
     class="global"
     style="background-image:url(images/Image2.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px"
     >
-  
-
-    
  
   <div id="title" >
     <router-link to="/CaractParcels" class="text-white"> <h1>TechnodoseViti</h1></router-link>
@@ -78,10 +75,13 @@
           Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts au sein du couvert végétal pour trois typologies différentes de pulvérisateurs (une voûte pneumatique passée, tous les 4 rangs, un appareil face par face et un panneau récupérateur).
         </p>
         <p>
-          L’onglet « caractéristique morphologique » permet de visualiser et de comparer les paramètres végétatifs sur les trois parcelles aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
+          L’onglet « Varibilité intra-parcellaire » permet de visualiser et de comparer les paramètres végétatifs d'une parcelle aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
         </p>
         <p>
-          L’onglet « comparaison des scénarios technologiques » permet de choisir entre deux niveaux de risques en matière d’efficacité de la protection phytosanitaire (risqué ou sécurisé) et de visualiser de manière automatisée les pourcentages de la dose homologuée à appliquer pour les deux scénarios choisis.
+          L’onglet « Varibilité inter-parcellaire » permet de visualiser et de comparer les paramètres végétatifs sur les trois parcelles aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
+        </p>
+        <p>
+          L’onglet « Comparaison des scénarios technologiques » permet de choisir entre deux niveaux de risques en matière d’efficacité de la protection phytosanitaire (risqué ou sécurisé) et de visualiser de manière automatisée les pourcentages de la dose homologuée à appliquer pour les deux scénarios choisis.
         </p>
 
       </div>
@@ -110,8 +110,17 @@ export default {
   },
 
   async created() {
-    await this.$store.dispatch('initTreatedParcels');
+    if (!this.$store.getters.getDataIsLoaded) {
+      await this.$store.dispatch('initTreatedParcels');
+    }
   },
+
+  async mounted() {
+      if (!this.$store.getters.getDataIsLoaded) {
+        await this.$store.dispatch('initTreatedParcels');
+      }
+  }
+
 }
 </script>
 
