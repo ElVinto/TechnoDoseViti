@@ -101,14 +101,14 @@ export default {
             { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameG },
             { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorG },
             { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseG },
-            { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisG },
+            { isActive: true, '#': 'hypothèse', Valeur: this.$store.state.selectedHypothesisG },
             { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
             ],
             itemsD: [
             { isActive: true,'#': 'Parcel', Valeur: this.$store.state.selectedParcelNameD },
             { isActive: false,'#': 'Actionneur', Valeur: this.$store.state.selectedActuatorD },
             { isActive: false,'#': 'stade.pheno', Valeur: this.$store.state.selectedPhenoPhaseD },
-            { isActive: true, '#': 'hypothése', Valeur: this.$store.state.selectedHypothesisD },
+            { isActive: true, '#': 'hypothèse', Valeur: this.$store.state.selectedHypothesisD },
             { isActive: true, '#': 'Dose Moyenne ', Valeur: this.$store.state.selectedHypothesisG }
             ],
         }
@@ -118,6 +118,12 @@ export default {
         if (!this.$store.getters.getDataIsLoaded) {
             this.$router.push("/");
         }
+    },
+
+    beforeMount(){
+        this.$store.commit("setCurrentNavPath", this.$router.currentRoute.path);
+        console.log("$store.state.currentNavPath")
+        console.log(this.$store.state.currentNavPath)
     },
 
     mounted() {

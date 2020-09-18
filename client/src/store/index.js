@@ -39,7 +39,9 @@ export default new Vuex.Store({
      selectedActuatorD: "faceparface",
      selectedPhenoPhaseD: "Debut",
      selectedHypothesisD: "risque",
-     selectedFeatureD:"height"
+     selectedFeatureD:"height",
+
+     currentNavPath: null
 
    },
 
@@ -82,7 +84,11 @@ export default new Vuex.Store({
 
       getSelectedParcelD: (state) =>{
          return state.treatedParcels.get(state.selectedParcelNameD).get(state.selectedActuatorD).get(state.selectedPhenoPhaseD).get(state.selectedHypothesisD)
-      }
+      },
+
+      getCurrentNavPath: (state) =>{
+         return state.currentNavPath
+      },
 
    },
 
@@ -106,6 +112,7 @@ export default new Vuex.Store({
          console.log("state.selectedParcelNameG");
          console.log(state.selectedParcelNameG);
       },
+
       setSelectedParcelNameD: (state,val) =>{
          state.selectedParcelNameD =val;
          console.log("state.selectedParcelNameD");
@@ -166,7 +173,11 @@ export default new Vuex.Store({
          state.selectedHypothesisG =val;
          console.log("state.selectedHypothesisG");
          console.log(state.selectedHypothesisG);
-      }
+      },
+
+      setCurrentNavPath: (state,val) =>{
+         state.currentNavPath=val;
+      },
 
 
    },
@@ -188,9 +199,9 @@ export default new Vuex.Store({
                   for(let hypothesis of state.hypotheses){
 
 
-                  console.log(`Parcelle_${parcelName}-actionneur_${actuator}-phasePheno_${phenoPhase}-Hypothese_${hypothesis}`)
+                  // console.log(`Parcelle_${parcelName}-actionneur_${actuator}-phasePheno_${phenoPhase}-Hypothese_${hypothesis}`)
                   let treatedParcel = await TreatedParcelData.getTreatedParcel(parcelName,actuator,phenoPhase,hypothesis);
-                  console.log(treatedParcel)
+                  // console.log(treatedParcel)
 
                   tmpTreatedParcels.get(parcelName).get(actuator).get(phenoPhase).set(hypothesis,treatedParcel);
 

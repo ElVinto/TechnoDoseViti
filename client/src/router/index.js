@@ -9,6 +9,10 @@ import CompCaract from '../components/scenarioSetterTest/CompCaract';
 import CompScen from '../components/scenarioSetterTest/CompScen';
 import CaractParcels from '../components/CaractParcels';
 
+import IntraParcel from '../components/intraParcel/IntraParcel';
+import InterParcel from '../components/interParcel/InterParcel';
+import ScenTechno from '../components/scenTechno/ScenTechno';
+
 import LegalMentions from '../components/LegalMentions.vue';
 
 
@@ -28,6 +32,26 @@ export default new Router({
       name: 'LegalMentions',
       component: LegalMentions
     },
+
+    {
+      path: '/IntraParcel',
+      name: 'IntraParcel',
+      component: IntraParcel
+    },
+
+    {
+      path: '/InterParcel',
+      name: 'InterParcel',
+      component: InterParcel
+    },
+
+    {
+      path: '/ScenTechno',
+      name: 'ScenTechno',
+      component: ScenTechno
+    },
+
+
 
     {
       path: '/CompCaract',

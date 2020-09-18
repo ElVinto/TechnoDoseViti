@@ -199,7 +199,13 @@ class TreatedParcel{
             q25: simpleStat.quantile(sortedArr, .25,true),
             median: simpleStat.quantile(sortedArr, .50,true),
             q75: simpleStat.quantile(sortedArr, .75,true),
-            max: simpleStat.quantile(sortedArr, 1,true)
+            max: simpleStat.quantile(sortedArr, 1,true),
+            
+            fp1: simpleStat.filteredPercentil(sortedArr, .17,true),
+            fp2: simpleStat.filteredPercentil(sortedArr, .37,true),
+            fp3: simpleStat.filteredPercentil(sortedArr, .50,true),
+            fp4: simpleStat.filteredPercentil(sortedArr, .67,true),
+            fp5: simpleStat.filteredPercentil(sortedArr, .84,true),
         }
 
     }

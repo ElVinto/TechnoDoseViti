@@ -1,15 +1,16 @@
 <template>
   <div
     class="global"
-    style="background-image:url(images/Image2.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px"
+    style="background-image:url(images/page_accueil.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px"
+    
     >
  
   <div id="title" >
-    <router-link to="/CaractParcels" class="text-white"> <h1>TechnodoseViti</h1></router-link>
+    <router-link to="/IntraParcel" class="text-white"> <h1>TechnodoseViti</h1></router-link>
   </div>
 
   <div id="btnScenario" style="width: auto; opacity:80%;">
-    <b-button to="/CaractParcels" variant="dark" style="width: auto;">
+    <b-button to="/IntraParcel" variant="dark" style="width: auto;">
       <!-- <img src="images/scenario.png"/> -->
       <!-- <br> -->
       <h3>Démonstrateur</h3>
@@ -41,9 +42,14 @@
           Afin d’évaluer les perspectives de réduction des doses en viticulture, plusieurs scénarios technologiques intégrant différents pulvérisateurs et raisonnements de la dose appliquée sont comparés en termes d’économie d’intrants en appliquant les modèles.
         </p>
 
-        <p>Contacts : Anice Cheraiet anice.cheraiet@vignevin.com, Sebastien CODIS sebastien.codis@vignevin.com, ITAP, INRAE</p>
+        <p>Contacts : Anice CHERAIET (anice.cheraiet@vignevin.com),
+          Sebastien CODIS (sebastien.codis@vignevin.com),
+          Olivier NAUD (olivier.naud@inrae.fr),
+          Matilde CARRA (mathilde.carra@inrae.fr),
+          INRAE
+        </p>
 
-        <p>Développeur(s) : Vincent Armant et Amin Ouail INRAE</p>
+        <p>Développeur(s) : Vincent ARMANT et Amin OUAIL, INRAE</p>
       </div>
     </div>
     
@@ -69,21 +75,37 @@
           Les données présentées sont issues de l’exploitation Mas Piquet (commune de Grabels), domaine du lycée viticole de Montpellier.
         </p>
         <p>
-          Les données LIDAR ont été acquises à trois stades végétatifs (début, milieu et pleine végétation) sur trois parcelles de vigueur contrastée (Aglae (Marselan), Terre Blanche (Chardonnay) et Franquet (Cabernet Sauvignon)).
+          Les données de végétation sont issues de l’analyse de capteur LIDAR (modèle LMS100, Sick) monté sur un tracteur et utilisé en proxi-détection dans les rangs de vigne. Les données ont été acquises à trois stades végétatifs (début, milieu et pleine végétation) sur trois parcelles de vigueur contrastée : (i) Aglae (cépage Marselan), (ii) Terre Blanche (cépage Chardonnay) (iii) Franquet (cépage Cabernet Sauvignon).
         </p>
         <p>
-          Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts au sein du couvert végétal pour trois typologies différentes de pulvérisateurs (une voûte pneumatique passée, tous les 4 rangs, un appareil face par face et un panneau récupérateur).
+          Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts de produits phytosanitaires au sein du couvert végétal pour trois typologies contrastées de pulvérisateurs en termes de performance avec du moins au plus précis : (i) une voûte pneumatique passée tous les 4 rangs (ii) un appareil face par face à jet porté équipé de buses classiques et (iii) un panneau récupérateur à jet porté. 
         </p>
         <p>
-          L’onglet « Varibilité intra-parcellaire » permet de visualiser et de comparer les paramètres végétatifs d'une parcelle aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
+          L’onglet « Variabilité intra-parcellaire » permet de visualiser les différences de paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m2/ha)) au sein d'une parcelle à une date donnée avec résolution spatiale de trois mètres.
         </p>
         <p>
-          L’onglet « Varibilité inter-parcellaire » permet de visualiser et de comparer les paramètres végétatifs sur les trois parcelles aux différentes dates avec une échelle spatiale d'avancement de trois mètres.
+          L’onglet « Variabilité inter-parcellaire et temporelle » permet de visualiser et de comparer les paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m2/ha)) entre deux parcelles différentes à une même date ou sur une même parcelle à différentes dates. La résolution spatiale est de trois mètres.
         </p>
         <p>
-          L’onglet « Comparaison des scénarios technologiques » permet de choisir entre deux niveaux de risques en matière d’efficacité de la protection phytosanitaire (risqué ou sécurisé) et de visualiser de manière automatisée les pourcentages de la dose homologuée à appliquer pour les deux scénarios choisis.
+          L’onglet « Comparaison des scénarios technologiques » permet de choisir deux scenarios différents et de comparer par une visualisation graphique les doses appliquées (en pourcentage de la dose homologuée) pour chacun des deux scénarios choisis.
         </p>
 
+        <p>
+          Une dose appliquée de 80% (resp. 30%) signifie qu’on applique 80% (resp. 30%) de la dose homologuée et qu’on réduit ainsi de 20% (resp. 70%) la dose par rapport à la dose hectare homologuée.
+        </p>
+        <p>
+          Un scenario technologique se caractérise pas le choix de 3 paramètres : (i) le choix du pulvérisateur qui sert à faire les applications, (ii) le choix de la parcelle (ii) le choix de la date (le stade phénologique de la culture).
+        </p>
+        <p>
+          Deux niveaux de risque en terme de protection phytosanitaire sont proposés et sont à choisir dès l’ouverture de l’onglet.
+          Cette notion de risque en terme de protection phytosanitaire a été définie en considérant deux distributions de références de dépôts, supposées suffisantes pour assurer la protection de la culture.
+        </p>
+        <p>  
+            Pour l’hypothèse « sécurisée », nous considérons suffisante la distribution de dépôt de produit obtenue en appliquant la pleine dose par hectare (dose homologuée) avec l’appareil le plus performant (face par face jet de technologie jet porté) sur une végétation pleinement développée.
+        </p>
+        <p>    
+          Pour l’hypothèse « risquée », nous considérons suffisante la distribution de dépôt de produit obtenue en appliquant la pleine dose par hectare (dose homologuée) avec l’appareil le moins performant (voûte pneumatique utilisée tous les 4 rangs) sur une végétation pleinement développée. A noter que cette façon de traiter reste majoritaire dans la plupart des vignobles de l’arc méditerranéen
+        </p>
       </div>
     </b-sidebar>
  

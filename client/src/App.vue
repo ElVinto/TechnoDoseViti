@@ -1,11 +1,12 @@
 <template>
   <div id="app">
+
     <div id="header" v-if="$router.currentRoute.path !== '/'" >
-      <my-header />
+      <my-header /> 
     </div>
 
     <div id="navbar" v-if="$router.currentRoute.path !== '/'">
-      <navbar />
+      <my-navbar />
     </div>
 
     <router-view />
@@ -17,16 +18,16 @@
 </template>
 
 <script>
-import footer from "./components/Footer";
-import header from "./components/Header";
-import navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 export default {
   name: "App",
   components: {
-    "my-footer": footer,
-    "my-header": header,
-    navbar: navbar,
+    'my-footer': Footer,
+    'my-header': Header,
+    'my-navbar': Navbar,
   },
 };
 </script>

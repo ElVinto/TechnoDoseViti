@@ -1,4 +1,5 @@
 <template>
+    
     <div style="margin-bottom:30px;" v-if="$store.getters.getDataIsLoaded">
 
         <div class="row">
@@ -87,7 +88,6 @@
 <script>
 import ParcelFeaturesTest from "./scenarioSetterTest/ParcelFeaturesTest"
 
-
 export default {
     data() {
     return {
@@ -105,6 +105,12 @@ export default {
             this.$router.push("/");
         }
         
+    },
+
+    beforeMount(){
+        this.$store.commit("setCurrentNavPath", this.$router.currentRoute.path);
+        console.log("$store.state.currentNavPath")
+        console.log(this.$store.state.currentNavPath)
     },
 
     mounted() {
@@ -149,7 +155,7 @@ components:{
 
 watch: {
        selectedParcelName : function(val){
-        this.$store.commit("setSelectedParcelName", val);},
+    this.$store.commit("setSelectedParcelName", val);},
        selectedPhenoPhase : function(val){
           console.log(this.$selectedPhenoPhase)
             this.$store.commit("setSelectedPhenoPhase", val);
@@ -170,6 +176,13 @@ p{background-color: black;color: blanchedalmond;
 .row{
   
     text-align: center;margin-left:auto;margin-right: auto;
+}
+
+.header { 
+    padding: 20px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: darkgrey;
 }
 </style>
 

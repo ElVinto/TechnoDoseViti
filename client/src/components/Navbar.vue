@@ -3,7 +3,7 @@
     <div class ="row">
 
       
-      <router-link to="/" class=" col-md-2 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" >
+      <router-link to="/" class=" col-md-3 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" >
             <b> <p class="text-center"> Accueil </p></b>
       </router-link>
       
@@ -13,17 +13,17 @@
           <b> Structure du végétal </b>
         </div>
         <div class = "row">
-          <router-link to="/CaractParcels" class="col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
-            <b> Variabilité intra-parcellaire </b> 
+          <router-link to="/IntraParcel" class="col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
+            <b> Variabilité intra-parcellaire et temporelle </b> 
           </router-link>
-          <router-link to="/CompCaract" class=" col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
-            <b> Variabilité inter-parcellaire </b> 
+          <router-link to="/InterParcel" class=" col-md-6 nav-link" style= "outline-style:solid; outline-width:1px" > 
+            <b> Variabilité inter-parcellaire et temporelle </b> 
           </router-link>
         </div>
       </div>
 
       
-      <router-link to="/CompScen" class=" col-md-4 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
+      <router-link to="/ScenTechno" class=" col-md-3 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
         <b> Comparaison des scénarios technologiques </b> 
       </router-link>
       

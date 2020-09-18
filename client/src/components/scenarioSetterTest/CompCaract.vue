@@ -85,6 +85,12 @@ export default {
         }
     },
 
+    beforeMount(){
+        this.$store.commit("setCurrentNavPath", this.$router.currentRoute.path);
+        console.log("$store.state.currentNavPath")
+        console.log(this.$store.state.currentNavPath)
+    },
+
     mounted() {
         if (!this.$store.getters.getDataIsLoaded) {
             this.$router.push("/");

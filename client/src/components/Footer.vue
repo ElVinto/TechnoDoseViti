@@ -3,7 +3,13 @@
       <div class="icones">
         <!--
           <a href= "https://play.google.com/store/apps/details?id=ag.GB.apex&hl=en" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src=images/apexvignes.png class="icone" ></i></a>
+        
+          
+          Logo_UMT_ecotech_inrae.png
         -->
+        
+        <a href= "https://agriculture.gouv.fr/ecophyto" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_ecophyto2.png" class="icone"></i></a>
+        <a href= "https://itap.irstea.fr/?p=6696" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_UMT_ecotech_inrae.png" class="icone"></i></a>
         
         <a href= "https://www.vignevin.com/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/ifv.png" class="icone"></i></a>
         <a href= "http://www.acta.asso.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src="images/acta_logo.png" ></i></a>

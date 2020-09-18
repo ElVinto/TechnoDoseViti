@@ -33,5 +33,7 @@ class TreatedParcelData{
 
     }
 
+    
+
 }
 export default TreatedParcelData;

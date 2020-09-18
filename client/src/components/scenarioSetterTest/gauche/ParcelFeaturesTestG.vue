@@ -1,7 +1,7 @@
 <template>
     <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
             
-        <div class="row" style="height:40px; text-align:center">
+        <!-- <div class="row" style="height:40px; text-align:center">
                 <b> Caractéristique morphologique :</b>
         </div>
         <div class ="row" style="height:50px">
@@ -14,7 +14,7 @@
                     {{translateFr(feature)}}
                 </option>
             </select>
-        </div>
+        </div> -->
 
         <div class="row" >
             <l-map 
@@ -32,36 +32,37 @@
                 >
                 <l-polyline
                     :lat-lngs="getLatLngs(segment)"
-                    :color="getColor(segment[selectedFeature],selectedFeature)"
-                    :weight="getWeight(segment,selectedFeature)"
-                    :opacity="getOpacity(segment,selectedFeature)"
-                    
+                    :color="getNewColor(segment[selectedFeature],selectedFeature)"
                 >
+                <!-- :weight="getWeight(segment,selectedFeature)"
+                    :opacity="getOpacity(segment,selectedFeature)" -->
                     <l-popup :content="getPopopContent(segment,selectedFeature)" />
                 </l-polyline>
                 </div>
             </l-map>
         </div>
 
-        <div class ="row" style="text-align:center; margin:10px ; font-size:.6em;" >
-            <span>
-                légende:
-            </span>
-            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].min,selectedFeature)}">
-                {{`${ getValG(selectedFeature,'min')} ${getUnit(selectedFeature)}`}}
+        <div class ="row" style="text-align:center; margin:10px; font-size:.6em;" >
+            
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(1)}">
+                {{`&le; ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp1}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
-            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].q25,selectedFeature)}">
-                {{`${ getValG(selectedFeature,'q25' )} ${getUnit(selectedFeature)}`}}
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(2)}">
+                {{`&le; ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp2}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
-            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].median,selectedFeature)}">
-                {{`${ getValG(selectedFeature,'median' )} ${getUnit(selectedFeature)}`}}
-             </b-progress-bar>
-            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].q75,selectedFeature)}">
-                {{`${ getValG(selectedFeature,'q75' )} ${getUnit(selectedFeature)}`}}
-             </b-progress-bar>
-            <b-progress-bar class="col-lg-2" v-bind:style="{ 'background-color': getColor($store.getters.getSelectedParcelG.stat[selectedFeature].max,selectedFeature)}">
-                {{`${ getValG(selectedFeature,'max' )} ${getUnit(selectedFeature)}`}}
-             </b-progress-bar>
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(3)}">
+                {{`&le; ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp3}${getUnit(selectedFeature)}`}} 
+            </b-progress-bar>
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(4)}">
+                {{`&le; ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp4}${getUnit(selectedFeature)}`}} 
+            </b-progress-bar>
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(5)}">
+                {{` &le; ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp5}${getUnit(selectedFeature)}`}} 
+            </b-progress-bar>
+            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(6)}">
+                {{`> ${$store.getters.getSelectedParcelG.stat[selectedFeature].fp5}${getUnit(selectedFeature)}`}} 
+            </b-progress-bar>
+            
         </div>
  
     </div>
@@ -103,7 +104,7 @@ export default {
 
             features:["height","thickness","density","leafWallArea"],
 
-            selectedFeature:"",
+            
 
             featureRGB:{
                 height:{
@@ -134,16 +135,22 @@ export default {
         }
     },
 
+    computed:{
+        selectedFeature : function(){
+            return this.feat
+        }
+    },
+
     created() {
         // console.log("creating ParcelFeatures")
         // console.log(this.feat)
-        this.selectedFeature = this.feat;
+        // this.selectedFeature = this.feat;
     },
 
     mounted() {
         // console.log("mounting ParcelFeatures")
         // console.log(this.feat)
-         this.selectedFeature = this.feat;
+        //  this.selectedFeature = this.feat;
          this.currentCenter = this.$store.getters.getSelectedParcelG.centre;
     },
 
@@ -186,6 +193,42 @@ export default {
             // console.log(`${feature} rgb(${r},${g},${b})`)
 
             return `rgb(${r},${g},${b})`
+        },
+
+        getNewColor(val,feature){
+            
+            // console.log(`getNewColor (${val}, ${feature})`)
+
+            let i = 0
+            let val_fpi =0;
+            for(i=1;i<=5;i++){
+                val_fpi = this.$store.getters.getSelectedParcelG.stat[feature][`fp${i}`]
+                if(val<=val_fpi){
+                     return this.getRGB_fp(i)
+                }
+            }
+            return this.getRGB_fp(6)
+        },
+
+        getRGB_fp(i){
+
+            switch (i) {
+                case 1:
+                    return 'rgb(255, 255, 204)';
+                case 2:
+                    return 'rgb(255, 255, 102)';
+                case 3:
+                    return 'rgb(255, 204, 102)';
+                case 4:
+                    return 'rgb(255, 153, 51)';
+                case 5:
+                    return 'rgb(255, 102, 0)';
+                case 6:
+                    return 'rgb(255, 0, 0)';
+
+                default:
+                    return 'rgb(0, 0, 0)';
+            }
         },
 
         
