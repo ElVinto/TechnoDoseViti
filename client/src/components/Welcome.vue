@@ -1,7 +1,7 @@
 <template>
   <div
     class="global"
-    style="background-image:url(images/page_accueil.jpg); background-size: 2200px 800px;padding:30px;margin: 1px;height: 800px"
+    style="background-image:url(images/page_accueil.jpg); background-size: 100% 800px;padding:30px;margin: 1px;height: 800px"
     
     >
  
