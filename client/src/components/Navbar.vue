@@ -8,6 +8,8 @@
       </router-link>
       
       <router-link to="/InterParcel" class=" col-md-4 nav-link" style= "outline-style:solid; outline-width:1px" > 
+        <b> Structure du végétal </b> 
+        <br>
         <b> Variabilité inter-parcellaire et temporelle </b> 
       </router-link>
 
@@ -28,6 +30,8 @@
       
       <router-link to="/ScenTechno" class=" col-md-4 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
         <b> Comparaison des scénarios technologiques </b> 
+        <br>
+        <b> de pulvérisation </b> 
       </router-link>
       
       
