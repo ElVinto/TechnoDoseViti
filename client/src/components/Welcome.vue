@@ -160,7 +160,7 @@ export default {
   width: 100%; 
   text-align: justify; 
   margin-top: 0px;
-  font-size: small;
+  font-size: medium;
   }
 
 
@@ -184,7 +184,7 @@ export default {
 
 #objective {
   grid-column: 2/5;
-  grid-row: 5/6;
+  grid-row: 4/6;
 }
 
 #btnGuide {
