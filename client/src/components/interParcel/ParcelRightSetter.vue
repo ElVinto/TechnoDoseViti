@@ -9,14 +9,14 @@
                 v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
                 v-bind:key="index"
                 v-bind:value="phenoPhase"
-              >{{ phenoPhase }}
+              >{{ prettierPhenoPhase(phenoPhase) }}
               </option>
             </select>
 
             <div id="menudv1"  style="width:auto;margin-top:10px;" >
         <div id="btndebutD">
-          <b-button id="iconedebut" variant="outline-primary" style="width:auto" ><p style="font-size:13px">Debut</p><img src="../../assets/debut.png" style="width:150px;height:auto;"></b-button>
-          <b-tooltip target="iconedebut">Debut</b-tooltip>
+          <b-button id="iconedebut" variant="outline-primary" style="width:auto" ><p style="font-size:13px">Début</p><img src="../../assets/debut.png" style="width:150px;height:auto;"></b-button>
+          <b-tooltip target="iconedebut">Début</b-tooltip>
         </div>
         <div id="btnmilieuD" style="display:none;">
           <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../assets/milieu.png" style="width:150px;height:auto;"></b-button>
@@ -54,29 +54,37 @@ mounted() {
 
 methods: {
 
+  prettierPhenoPhase(phenoPhase){
+          switch (phenoPhase) {
+              case "Debut":
+                  return 'Début';
+          
+              default:
+                  return phenoPhase;
+          }
+  },
 
-selectBtnPhenoPhaseD(val){
-   
-if(val === 'Debut'){
+  selectBtnPhenoPhaseD(val){
+    
+    if(val === 'Debut'){
 
-  document.getElementById('btndebutD').style.display='block';
-  document.getElementById('btnmilieuD').style.display='none';
-  document.getElementById('btnfinD').style.display='none';}
+      document.getElementById('btndebutD').style.display='block';
+      document.getElementById('btnmilieuD').style.display='none';
+      document.getElementById('btnfinD').style.display='none';}
 
-else if(val === 'Milieu'){
+    else if(val === 'Milieu'){
 
-  document.getElementById('btnmilieuD').style.display='block';
-  document.getElementById('btndebutD').style.display='none';
-  document.getElementById('btnfinD').style.display='none';}
+      document.getElementById('btnmilieuD').style.display='block';
+      document.getElementById('btndebutD').style.display='none';
+      document.getElementById('btnfinD').style.display='none';}
 
-else if (val === 'Fin'){
-  document.getElementById('btnfinD').style.display='block';
-  document.getElementById('btndebutD').style.display='none';
-  document.getElementById('btnmilieuD').style.display='none';
-}
+    else if (val === 'Fin'){
+      document.getElementById('btnfinD').style.display='block';
+      document.getElementById('btndebutD').style.display='none';
+      document.getElementById('btnmilieuD').style.display='none';
+    }
 
-
-}
+  }
     
 },
 

@@ -1,12 +1,6 @@
 <template>
     <div v-if="$store.getters.getDataIsLoaded " style=" margin:10px">
-        <div class="row" style="height:40px; " >
-            <p>
-                Dose appliquée (en % de la dose homologuée)
-            </p>
-        </div>
-
-        <div class="row" >
+      
             <l-map 
                 :zoom="currentZoom"
                 :center= "$store.getters.getSelectedParcelG.centre"
@@ -31,50 +25,7 @@
                 </l-polyline>
                 </div>
             </l-map>
-        </div>
-
-        <div class ="row" style="text-align:center; margin-top:10px; margin-bottom:10px; font-size:.55em;" >
-            
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(1)}">
-                {{`&le; ${leftRightFilteredSixthtils[0]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(2)}">
-                {{`&le; ${leftRightFilteredSixthtils[1]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(3)}">
-                {{`&le; ${leftRightFilteredSixthtils[2]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(4)}">
-                {{`&le; ${leftRightFilteredSixthtils[3]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(5)}">
-                {{` &le; ${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(6)}">
-                {{`> ${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
-            </b-progress-bar>
-            
-        </div>
-
-        <div>
-            <table class="table table-striped">
-                    <tbody>       
-                        <tr>
-                            <td><b>{{ `Moyenne :`}}</b> </td>
-                            <td>{{`${$store.getters.getSelectedParcelG.stat[selectedFeature].mean}${getUnit(selectedFeature)} `}}</td>
-                        </tr>
-                        <tr>
-                            <td><b>{{ `Ecart type :`}}</b></td>
-                            <td>{{` ${$store.getters.getSelectedParcelG.stat[selectedFeature].std}${getUnit(selectedFeature)}`}}</td>
-                        </tr>
-                        <tr v-if="$store.state.selectedActuatorG === 'panneaurecuperateur'">
-                            <td><b> Taux de recupération :</b></td>
-                            <td>{{`${getSelectedMeanRecupRate()}%`}}</td>
-                        </tr>
-                    </tbody> 
-            </table>
-        </div>
- 
+        
     </div>
 </template>
 <script>

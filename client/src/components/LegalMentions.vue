@@ -2,13 +2,13 @@
   <div class="global">
     <h4>Mentions légales | Crédits | Confidentialité</h4>
     <p>
-      Le site TechnoDoseViti <a href=" https://technodoseviti.herokuapp.com/"> https://technodoseviti.herokuapp.com/</a> est une application web développée par  <a href="https://www.inrae.fr">INRAE</a> et l'<a href="https://www.montpellier-supagro.fr"> Institut Agro | Montpellier Supagro</a>.
+      Le site TechnoDoseViti <a href=" https://technodoseviti.herokuapp.com/"> https://technodoseviti.herokuapp.com/</a> est une application web développée par  <a href="https://www.inrae.fr">INRAE</a>.
       Sa publication et son développement sont financés par  <a href="https://www.hdigitag.fr/">#DigitAg</a>, l’Institut Convergences Agriculture Numérique. A ce titre, il a bénéficié d’une aide de l’État gérée par l’Agence Nationale de la Recherche au titre du programme d’Investissements d’Avenir portant la référence ANR-16-CONV-0004.
     </p>
 
     <ul>
-      <li> Les logos et autres contenus présents sur ce site font  l’objet de droits de propriété intellectuelle.  En conséquence, il vous est interdit de les réutiliser sans autorisation préalable</li>
-      <li> « Les contenus de nature publique sont utilisables conformément aux conditions de la licence ouverte  «<a href="https://opensource.org/licenses/MIT">MIT</a>»</li> 
+      <li> Les logos et autres contenus présents sur ce site font  l’objet de droits de propriété intellectuelle.  En conséquence, il vous est interdit de les réutiliser sans autorisation préalable.</li>
+      <li> Les contenus de nature publique sont utilisables conformément aux conditions de la licence ouverte <a href="https://opensource.org/licenses/MIT">MIT</a>.</li> 
       
         
       
@@ -22,8 +22,8 @@
     <h5>Développement informatique</h5>
 
     <p>
-      Vincent Armant et Amine Ouail, #DigitAg | INRAE Occitanie-Montpellier | UMR MISTEA.
-      L'application a été développée à la demande de Anice Cheraiet (Doctorant), Sebastien CODIS, Olivier NAUD,  Institut de la Vigne et du Vin 
+      Vincent ARMANT et Amine OUAIL, #DigitAg | INRAE Occitanie-Montpellier | UMR MISTEA.
+      L'application a été développée à la demande d' Anice CHERAIET (Doctorant), Sebastien CODIS, Olivier NAUD,  Institut de la Vigne et du Vin. 
     </p>
 
     <h5>Responsabilité INRAE</h5>
@@ -50,7 +50,7 @@
 
 
     <h4>Données à caractère personnel</h4>
-      Aucune données à caractère personnel (DCP) n'est recueillie par le présent site 
+      Aucune données à caractère personnel (DCP) n'est recueillie par le présent site.
     
 </div>
 </template>

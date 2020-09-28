@@ -2,13 +2,32 @@
 <div>
     <div><h2>Variabilité inter-parcellaire et temporelle</h2></div>
     <div class="row">
-        <div class="col-md-2" >
+        <div class="col-md-2" style="background-color:#eceff1 ;">
+            <h5 style="margin-top:20px">Cas n&deg;1 :</h5>
+            <br>
+            <hr>
+            <div id="parcelSetterView" >
+                <div id="parcelSetter" style="margin-bottom:10px">
+                    Parcelle : 
+                    <br>
+                    <select v-model="selectedParcelNameG" class="custom-select" style="width:auto;">
+                        <option
+                        v-for="(parcelName, index) in $store.getters.getParcelNames"
+                        v-bind:key="index"
+                        v-bind:value="parcelName">{{ parcelName }}
+                        </option>
+                    </select>
+                </div>
+            </div> 
+            <hr>   
+            <div id="phenoG"><ParcelLeftSetter></ParcelLeftSetter></div>  
         </div>
+ 
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6" >
-                    <b> Caracteristique morphologique : </b>
+                    <b> Caractéristique morphologique : </b>
                     <select v-model="selectedFeature" class="custom-select" >
                         
                         <option 
@@ -23,17 +42,60 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
-        </div>
-        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="parcelG"><ParcelLeft v-bind:feat="selectedFeature"></ParcelLeft></div>  
+                </div> 
+                <div class="col-md-6">
+                    <div id="parcelD"><ParcelRight v-bind:feat="selectedFeature"></ParcelRight></div>  
+                </div>
+            </div>
+            <div class ="row">
+                <div class="col-md-12">
+                    <LeftRightSelectedFeatureLegend v-bind:feat="selectedFeature"> </LeftRightSelectedFeatureLegend>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="parcelG"><LeftSelectedFeatureTable v-bind:feat="selectedFeature"></LeftSelectedFeatureTable></div>  
+                </div> 
+                <div class="col-md-6">
+                    <div id="parcelD"><RightSelectedFeatureTable v-bind:feat="selectedFeature"></RightSelectedFeatureTable></div>  
+                </div>
+            </div>
+
             
+
         </div>
+
+        <div class="col-md-2" style="background-color:#eceff1 ;" >
+            <h5 style="margin-top:20px">Cas n&deg;2 :</h5>
+            <br>
+            <hr>
+            <div id="parcelSetterView" >
+                <div id="parcelSetter" style="margin-bottom:10px">
+                    Parcelle : 
+                    <br>
+                    <select v-model="selectedParcelNameD" class="custom-select" style="width:auto;">
+                        <option
+                        v-for="(parcelName, index) in $store.getters.getParcelNames"
+                        v-bind:key="index"
+                        v-bind:value="parcelName">{{ parcelName }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <hr> 
+            <div id="phenoD"><ParcelRightSetter></ParcelRightSetter></div>
+        </div> 
     </div>
 
-    <div  class="row">
+
+    <!-- <div  class="row">
         <div class="col-md-6" style="border-style: ridge;">
             <div  class="row">
                 <div class="col-md-4" style="background-color:#eceff1 ;">
-                 <h5 style="margin-top:20px">Scénario 1 :</h5>
+                 <h5 style="margin-top:20px">Cas n&deg;1 :</h5>
                     <br>
                     <hr>
                     <div id="parcelSetterView" >
@@ -65,7 +127,7 @@
                 </div>
                      
                 <div class="col-md-4" style="background-color:#eceff1 ;" >
-                    <h5 style="margin-top:20px">Scénario 2 :</h5>
+                    <h5 style="margin-top:20px">Cas n&deg;2 :</h5>
                     <br>
                     <hr>
                 <div id="parcelSetterView" >
@@ -86,7 +148,8 @@
                 </div> 
             </div> 
         </div>   
-    </div> 
+    </div>  -->
+
 </div> 
 </template>
 <script>
@@ -96,9 +159,13 @@
 
 import ParcelLeftSetter from './ParcelLeftSetter'
 import ParcelLeft from './ParcelLeft'
+import LeftSelectedFeatureTable from './LeftSelectedFeatureTable'
 
 import ParcelRightSetter from './ParcelRightSetter'
 import ParcelRight from './ParcelRight'
+import RightSelectedFeatureTable from './RightSelectedFeatureTable'
+
+import LeftRightSelectedFeatureLegend from './LeftRightSelectedFeatureLegend'
 
 
 export default {
@@ -106,9 +173,13 @@ export default {
     components:{
         ParcelRightSetter,
         ParcelRight,
+        LeftSelectedFeatureTable,
 
         ParcelLeftSetter,
         ParcelLeft,
+        RightSelectedFeatureTable,
+
+        LeftRightSelectedFeatureLegend,
         
     },
 
@@ -119,7 +190,7 @@ export default {
 
         features:["height","thickness","density","leafWallArea"],
 
-        selectedFeature:"thickness",
+        selectedFeature:"height",
 
         
         

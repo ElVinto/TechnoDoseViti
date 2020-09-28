@@ -2,22 +2,8 @@
 <div>
     <div><h2>Comparaison des scénarios technologiques</h2></div>
     <div class="row">
-        <div class="col-md-2" >
-        </div>
-        <div class="col-md-8" id="hypothesis">
-            <LeftRightHypothesisSetter></LeftRightHypothesisSetter>
-        </div>
-        <div class="col-md-2">
-            
-        </div>
-    </div>
-
-    <div  class="row">
-        <div class="col-md-6" style="border-style: ridge;">
-            <div  class="row">
-                <div class="col-md-4" style="background-color:#eceff1 ;">
-                 <h5 style="margin-top:20px">Scénario 1 :</h5>
-                    <br>
+        <div class="col-md-2" style="background-color:#eceff1 ;" >
+            <h5 style="margin-top:20px">Scénario 1 :</h5>
                     <hr>
                     <div id="parcelSetterView" >
                         <div id="parcelSetter" style="margin-bottom:10px">
@@ -35,22 +21,58 @@
                     <hr>   
                     <div id="phenoG"><LeftPhenoPhaseSetter></LeftPhenoPhaseSetter></div>  
                     <div id="actuatorG"><LeftActuatorSetter></LeftActuatorSetter></div>
-                </div>
-               <hr>
-                <div class="col-md-8">
-                    <div id="parcelG"><LeftAppliedDoseMap></LeftAppliedDoseMap></div>  
-                </div> 
-            </div> 
         </div>
-        <div class="col-md-6" style="border-style: ridge;">
-            <div  class="row"> 
-                <div class="col-md-8">
+
+
+        <div class="col-md-8" >
+
+            <div class="row" >
+                <p style="text-align:center; width:100%; margin:5px">
+                    « Dose à appliquer (en % de la dose homologuée) pour assurer le dépôt de référence »
+                </p>
+            </div>
+            
+            <div class="row">
+                <div id="hypothesis" class="col-md-12">
+                    <LeftRightHypothesisSetter></LeftRightHypothesisSetter>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="parcelG"><LeftAppliedDoseMap></LeftAppliedDoseMap></div>  
+                </div>
+                <div class="col-md-6">
                     <div id="parcelD"><RightAppliedDoseMap></RightAppliedDoseMap></div>  
                 </div>
-                     
-                <div class="col-md-4" style="background-color:#eceff1 ;" >
+                
+            </div>
+
+            <div class="row">
+                <div  class="col-md-12">
+                    <LeftRightAppliedDoseLegend></LeftRightAppliedDoseLegend>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="tableG"><LeftAppliedDoseTable></LeftAppliedDoseTable></div>  
+                </div>
+                <div class="col-md-6">
+                    <div id="tableD"><RightAppliedDoseTable></RightAppliedDoseTable></div>  
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <div class="col-md-2" style="background-color:#eceff1 ;" >
                     <h5 style="margin-top:20px">Scénario 2 :</h5>
-                    <br>
                     <hr>
                 <div id="parcelSetterView" >
                     <div id="parcelSetter" style="margin-bottom:10px">
@@ -68,10 +90,9 @@
                 <hr> 
                 <div id="phenoD"><RightPhenoPhaseSetter></RightPhenoPhaseSetter></div>
                 <div id="actuatorG"><RightActuatorSetter></RightActuatorSetter></div>
-                </div> 
-            </div> 
-        </div>   
-    </div> 
+        </div> 
+    </div>
+
 </div> 
 </template>
 <script>
@@ -81,31 +102,37 @@
 
 
 import LeftAppliedDoseMap from './LeftAppliedDoseMap'
+import LeftAppliedDoseTable from './LeftAppliedDoseTable'
 import LeftPhenoPhaseSetter from './LeftPhenoPhaseSetter'
 import LeftActuatorSetter from './LeftActuatorSetter'
 
-import LeftRightHypothesisSetter from './LeftRightHypothesisSetter'
- 
-
 import RightAppliedDoseMap from './RightAppliedDoseMap'
+import RightAppliedDoseTable from './RightAppliedDoseTable'
 import RightPhenoPhaseSetter from './RightPhenoPhaseSetter'
 import RightActuatorSetter from './RightActuatorSetter'
 
+import LeftRightHypothesisSetter from './LeftRightHypothesisSetter'
+import LeftRightAppliedDoseLegend from './LeftRightAppliedDoseLegend'
+ 
 
 
 export default {
 
     components:{
-        RightPhenoPhaseSetter,
+
         RightAppliedDoseMap,
+        RightAppliedDoseTable,
+        RightPhenoPhaseSetter,
         RightActuatorSetter,
 
         
         LeftAppliedDoseMap,
+        LeftAppliedDoseTable,
         LeftPhenoPhaseSetter,
         LeftActuatorSetter,
 
         LeftRightHypothesisSetter,
+        LeftRightAppliedDoseLegend
         
     },
 

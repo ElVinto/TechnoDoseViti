@@ -3,3 +3,4 @@ client/node_modules
 mapclient
 .DS_Store
 .env
+other

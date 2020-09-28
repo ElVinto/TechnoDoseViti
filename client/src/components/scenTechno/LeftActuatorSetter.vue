@@ -11,7 +11,7 @@
           v-bind:key="index"
           v-bind:value="actuator"
         >
-          {{ actuator }}
+          {{ prettierActuator(actuator) }}
         </option>
       </select>
 
@@ -63,6 +63,22 @@ export default {
     },
 
     methods: {
+
+    prettierActuator(actuator){
+          switch (actuator) {
+              case 'faceparface':
+                return 'Face par Face';
+              
+              case 'panneaurecuperateur':
+                return 'Panneau récupérateur';
+              
+              case 'voutepneumatique':
+                return 'Voûte pneumatique';
+                
+              default:
+                  return actuator;
+          }
+    },
 
     selectActuatorBtnGauche(val){
         console.log(val);

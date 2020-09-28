@@ -9,14 +9,14 @@
                 <option
                   v-for="(phenoPhase, index) in $store.getters.getPhenoPhases"
                   v-bind:key="index"
-                  v-bind:value="phenoPhase">{{ phenoPhase }}
+                  v-bind:value="phenoPhase">{{ prettierPhenoPhase(phenoPhase) }}
                 </option>
             </select>
 
           <div id="menudv1"  style="width:auto;margin-top:10px;" >
               <div id="btndebutG">
-                  <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Debut</p><img src="../../assets/debut.png" style="width:150px;height:auto;"></b-button>
-                  <b-tooltip target="iconedebut">Debut</b-tooltip>
+                  <b-button id="iconedebut" variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Début</p><img src="../../assets/debut.png" style="width:150px;height:auto;"></b-button>
+                  <b-tooltip target="iconedebut">Début</b-tooltip>
               </div>
               <div id="btnmilieuG" style="display:none;">
                   <b-button id="iconemilieu"  variant="outline-primary" style="width:auto;" ><p style="font-size:13px">Milieu</p><img src="../../assets/milieu.png" style="width:150px;height:auto;"></b-button>
@@ -50,27 +50,36 @@ export default {
 methods: {
 
 
+    prettierPhenoPhase(phenoPhase){
+        switch (phenoPhase) {
+            case "Debut":
+                return 'Début';
+        
+            default:
+                return phenoPhase;
+        }
+    },
 
-selectBtnPhenoPhaseG(val){
-   
-    if(val === 'Debut'){
+    selectBtnPhenoPhaseG(val){
+    
+        if(val === 'Debut'){
 
-    document.getElementById('btndebutG').style.display='block';
-    document.getElementById('btnmilieuG').style.display='none';
-    document.getElementById('btnfinG').style.display='none';}
-
-    else if(val === 'Milieu'){
-
-    document.getElementById('btnmilieuG').style.display='block';
-    document.getElementById('btndebutG').style.display='none';
-    document.getElementById('btnfinG').style.display='none';}
-
-    else if (val === 'Fin'){
-        document.getElementById('btnfinG').style.display='block';
-        document.getElementById('btndebutG').style.display='none';
+        document.getElementById('btndebutG').style.display='block';
         document.getElementById('btnmilieuG').style.display='none';
+        document.getElementById('btnfinG').style.display='none';}
+
+        else if(val === 'Milieu'){
+
+        document.getElementById('btnmilieuG').style.display='block';
+        document.getElementById('btndebutG').style.display='none';
+        document.getElementById('btnfinG').style.display='none';}
+
+        else if (val === 'Fin'){
+            document.getElementById('btnfinG').style.display='block';
+            document.getElementById('btndebutG').style.display='none';
+            document.getElementById('btnmilieuG').style.display='none';
+        }
     }
-}
     
 },
 

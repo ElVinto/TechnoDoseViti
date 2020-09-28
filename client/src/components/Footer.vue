@@ -8,17 +8,18 @@
           Logo_UMT_ecotech_inrae.png
         -->
         
-        <a href= "https://agriculture.gouv.fr/ecophyto" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_ecophyto2.png" class="icone"></i></a>
-        <a href= "https://itap.irstea.fr/?p=6696" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_UMT_ecotech_inrae.png" class="icone"></i></a>
+        <a href= "https://agriculture.gouv.fr/ecophyto" target="_blank" class="icone btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_ecophyto2.png" class="icone"></i></a>
+        <a href= "https://www.vignevin.com/wp-content/uploads/2019/03/Maitrise_de_la_qualite_de_la_pulve_NOTE_UMT_ECOTECHVITI.pdf" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/Logo_UMT_ecotech_inrae.png" class="icone"></i></a>
         
         <a href= "https://www.vignevin.com/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img  src="images/ifv.png" class="icone"></i></a>
         <a href= "http://www.acta.asso.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src="images/acta_logo.png" ></i></a>
         <a href= "https://www.hdigitag.fr/fr/ " target="_blank" class="btn-floating btn-sm btn-fb mx-1" ><i><img src="images/logoDigitAg-reserve.png" ></i></a>
-        <a href="http://www.inrae.fr" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo-INRAE_Transparent.png" ></i></a>
-        <a href= "https://muse.edu.umontpellier.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo_MUSE.png"></i></a>
+        <!-- <a href="http://www.inrae.fr" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo-INRAE_Transparent.png" ></i></a> -->
+        <a href="http://www.inrae.fr" target="_blank" class="btn-floating btn-sm btn-fb mx-1"><i><img src="images/Logo_INRAE.png" class="icone"></i></a>
+        <a href= "https://muse.edu.umontpellier.fr/" target="_blank" class="btn-floating btn-sm btn-fb mx-1 icone"><i><img src="images/Logo_MUSE.png" ></i></a>
       </div>
       <div class="copyright ">
-        Copyright &copy; 2020: <a href="https://inrae.fr" target="_blank">  www.inrae.fr </a> | <a href="https://www.hdigitag.fr/fr/" target="_blank"> www.hdigitag.fr</a> && <a  href="#/legalMentions" target="_blank">  Mentions Legal | Politique de confidentialite</a>
+        Copyright &copy; 2020: <a href="https://inrae.fr" target="_blank">  www.inrae.fr </a> | <a href="https://www.hdigitag.fr/fr/" target="_blank"> www.hdigitag.fr</a> & <a  href="#/legalMentions" target="_blank">  Mentions Légales | Politique de confidentialité</a>
       </div>
 </div>
 </template>
@@ -39,13 +40,13 @@
   color: white;
   height: 30px;}
 img {
-  border-radius: 5%;
+  border-radius: 0%;
 }
 
 .imgg {
   width: 60px;height: 0px;
 }
-@media screen and (min-width: 900px) {  
+@media screen and (min-width: 1470px) {  
 
 .icones{background: gray;padding: 7px; height: 70px;}
 .icones p {text-align:center;}
@@ -54,7 +55,7 @@ img {
 .icone{height: 40px;}}
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1470px) {
 .icones{background: gray;padding: 7px; height: 70px;}
 .icones p {text-align:center;}
 .icones img {max-width: 9%;margin-left: 5px;}

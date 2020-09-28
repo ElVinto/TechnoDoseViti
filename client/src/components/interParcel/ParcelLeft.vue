@@ -44,25 +44,25 @@
         </div>
 
 
-        <div class ="row" style="text-align:center; margin-top:10px; margin-bottom:10px; font-size:.55em;" >
+        <!-- <div class ="row" style="text-align:center; margin-top:10px; margin-bottom:10px; font-size:.6em;" >
             
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(1)}">
-                {{`&le; ${leftRightFilteredSixthtils[0]}${getUnit(selectedFeature)}`}} 
+                {{`&le;${leftRightFilteredSixthtils[0]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{'background-color': getRGB_fp(2)}">
-                {{`&le; ${leftRightFilteredSixthtils[1]}${getUnit(selectedFeature)}`}} 
+                {{`&le;${leftRightFilteredSixthtils[1]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(3)}">
-                {{`&le; ${leftRightFilteredSixthtils[2]}${getUnit(selectedFeature)}`}} 
+                {{`&le;${leftRightFilteredSixthtils[2]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(4)}">
-                {{`&le; ${leftRightFilteredSixthtils[3]}${getUnit(selectedFeature)}`}} 
+                {{`&le;${leftRightFilteredSixthtils[3]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(5)}">
-                {{` &le; ${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
+                {{` &le;${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             <b-progress-bar class="col-md-2" style ="color:green;" v-bind:style="{ 'background-color': getRGB_fp(6)}">
-                {{`> ${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
+                {{`>${leftRightFilteredSixthtils[4]}${getUnit(selectedFeature)}`}} 
             </b-progress-bar>
             
         </div>
@@ -81,7 +81,7 @@
                 </tbody> 
             </table>
         </div>
- 
+  -->
     </div>
 </template>
 <script>

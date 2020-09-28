@@ -289,7 +289,7 @@ export default {
                     unit = "m"; 
                     break;
                 case "density": 
-                    unit = "m"; 
+                    unit = "%"; 
                     break;
                 case "leafWallArea": 
                     unit = "m\u00B2/ha"; 

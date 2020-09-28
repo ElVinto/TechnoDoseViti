@@ -6,11 +6,11 @@
     >
  
   <div id="title" >
-    <router-link to="/IntraParcel" class="text-white"> <h1>TechnodoseViti</h1></router-link>
+    <router-link to="/InterParcel" class="text-white"> <h1>TechnodoseViti</h1></router-link>
   </div>
 
   <div id="btnScenario" style="width: auto; opacity:80%;">
-    <b-button to="/IntraParcel" variant="dark" style="width: auto;">
+    <b-button to="/InterParcel" variant="dark" style="width: auto;">
       <!-- <img src="images/scenario.png"/> -->
       <!-- <br> -->
       <h3>Démonstrateur</h3>
@@ -35,18 +35,23 @@
           Comparaison des doses de produits phytosanitaires à appliquer en fonction des caractéristiques de la végétation et de la performance du pulvérisateur : objectif pulvérisation de précision
         </b></center>
         </p>
-        <p > 
+        <p>
           Dans l’objectif d’optimiser l’utilisation des produits phytosanitaires en vigne, notre approche consiste à prendre en compte à la fois les caractéristiques structurales de la végétation et la typologie du pulvérisateur utilisé pour raisonner les doses à appliquer.
-          La stratégie mise en œuvre dans la thèse <b> « Modélisation expérimentale et statistique des relations entre caractéristiques morphologiques de la vigne et dépôts de pulvérisation : application à l’agriculture de précision » </b> 
-          s’appuie sur le développement de modèles de prédiction des quantités et profils de dépôts de produits phytosanitaires dans la végétation en fonction d’une part des paramètres végétatifs issus de  mesures effectuées avec un capteur LiDAR (hauteur, épaisseur et densité de végétation) et d’autre part de la performance du pulvérisateur.
-          Afin d’évaluer les perspectives de réduction des doses en viticulture, plusieurs scénarios technologiques intégrant différents pulvérisateurs et raisonnements de la dose appliquée sont comparés en termes d’économie d’intrants en appliquant les modèles.
+        </p>
+
+        <p > 
+           La stratégie mise en œuvre dans la thèse <b> « Modélisation expérimentale et statistique des relations entre caractéristiques morphologiques de la vigne et dépôts de pulvérisation : application à l’agriculture de précision » </b> 
+          s’appuie sur le développement de modèles de prédiction des quantités et profils de dépôts de produits phytosanitaires dans la végétation. Ces modèles de distribution de dépôts ont pour paramètres d’entrée d’une part les paramètres végétatifs issus de mesures effectuées avec un capteur LiDAR (hauteur, épaisseur et densité de végétation) et d’autre part de la performance du pulvérisateur.
+        </p>
+
+        <p>
+          Afin d’évaluer les perspectives de réduction des doses en viticulture, plusieurs scénarios technologiques intégrant différents pulvérisateurs et raisonnements de la dose appliquée sont comparés en termes d’économie d’intrants.
         </p>
 
         <p>Contacts : Anice CHERAIET (anice.cheraiet@vignevin.com),
           Sebastien CODIS (sebastien.codis@vignevin.com),
           Olivier NAUD (olivier.naud@inrae.fr),
-          Matilde CARRA (mathilde.carra@inrae.fr),
-          INRAE
+          Mathilde CARRA (mathilde.carra@inrae.fr),
         </p>
 
         <p>Développeur(s) : Vincent ARMANT et Amin OUAIL, INRAE</p>
@@ -78,13 +83,13 @@
           Les données de végétation sont issues de l’analyse de capteur LIDAR (modèle LMS100, Sick) monté sur un tracteur et utilisé en proxi-détection dans les rangs de vigne. Les données ont été acquises à trois stades végétatifs (début, milieu et pleine végétation) sur trois parcelles de vigueur contrastée : (i) Aglae (cépage Marselan), (ii) Terre Blanche (cépage Chardonnay) (iii) Franquet (cépage Cabernet Sauvignon).
         </p>
         <p>
-          Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts de produits phytosanitaires au sein du couvert végétal pour trois typologies contrastées de pulvérisateurs en termes de performance avec du moins au plus précis : (i) une voûte pneumatique passée tous les 4 rangs (ii) un appareil face par face à jet porté équipé de buses classiques et (iii) un panneau récupérateur à jet porté. 
+          Les modèles de dépôts permettent de prédire la quantité et la distribution des dépôts de produits phytosanitaires au sein du couvert végétal pour trois typologies contrastées de pulvérisateurs en termes de performance avec, du moins au plus précis : (i) une voûte pneumatique passée tous les 4 rangs, (ii) un appareil face par face à jet porté équipé de buses classiques et, (iii) un panneau récupérateur à jet porté. 
         </p>
+        <!-- <p>
+          L’onglet « Variabilité intra-parcellaire » permet de visualiser les différences de paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m{{squarred}}/ha)) au sein d'une parcelle à une date donnée avec résolution spatiale de trois mètres.
+        </p> -->
         <p>
-          L’onglet « Variabilité intra-parcellaire » permet de visualiser les différences de paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m2/ha)) au sein d'une parcelle à une date donnée avec résolution spatiale de trois mètres.
-        </p>
-        <p>
-          L’onglet « Variabilité inter-parcellaire et temporelle » permet de visualiser et de comparer les paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m2/ha)) entre deux parcelles différentes à une même date ou sur une même parcelle à différentes dates. La résolution spatiale est de trois mètres.
+          L’onglet « Variabilité inter-parcellaire et temporelle » permet de visualiser et de comparer les paramètres végétatifs (hauteur de végétation (m), épaisseur de végétation (m), densité de végétation (%) ainsi que la surface de haie foliaire (analogue au LWA (Leaf Wall Area en m{{squarred}}/ha)) entre deux parcelles différentes à une même date ou sur une même parcelle à différentes dates. La résolution spatiale est de trois mètres.
         </p>
         <p>
           L’onglet « Comparaison des scénarios technologiques » permet de choisir deux scenarios différents et de comparer par une visualisation graphique les doses appliquées (en pourcentage de la dose homologuée) pour chacun des deux scénarios choisis.
@@ -98,7 +103,7 @@
         </p>
         <p>
           Deux niveaux de risque en terme de protection phytosanitaire sont proposés et sont à choisir dès l’ouverture de l’onglet.
-          Cette notion de risque en terme de protection phytosanitaire a été définie en considérant deux distributions de références de dépôts, supposées suffisantes pour assurer la protection de la culture.
+          Cette notion a été définie en considérant deux distributions de références de dépôts, supposées suffisantes pour assurer la protection de la culture.
         </p>
         <p>  
             Pour l’hypothèse « sécurisée », nous considérons suffisante la distribution de dépôt de produit obtenue en appliquant la pleine dose par hectare (dose homologuée) avec l’appareil le plus performant (face par face jet de technologie jet porté) sur une végétation pleinement développée.
@@ -122,7 +127,8 @@ export default {
 
    data() {
       return {
-        show: false
+        show: false,
+        squarred: '\u00B2'
       }
     },
 

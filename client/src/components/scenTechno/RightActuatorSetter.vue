@@ -8,7 +8,8 @@
                 <option
                     v-for="(actuator, index) in $store.getters.getActuators"
                     v-bind:key="index"
-                    v-bind:value="actuator">{{ actuator }}
+                    v-bind:value="actuator">
+                    {{ prettierActuator(actuator) }}
                 </option>
             </select>
 
@@ -57,6 +58,23 @@ export default {
         },
     },
     methods: {
+
+        prettierActuator(actuator){
+          switch (actuator) {
+              case 'faceparface':
+                return 'Face par Face';
+              
+              case 'panneaurecuperateur':
+                return 'Panneau récupérateur';
+              
+              case 'voutepneumatique':
+                return 'Voûte pneumatique';
+                
+              default:
+                  return actuator;
+          }
+        },
+
         selectActuatorBtnDroite(val){
             console.log(val);
             if(val === 'faceparface'){

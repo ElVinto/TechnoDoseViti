@@ -34,7 +34,7 @@ class TreatedParcel{
 
                 readInterface.on('line', (line) =>{
                     let raw =line.split(";");
-                    if(firstLinePassed){ // pass header
+                    if(firstLinePassed && raw.length>5){ // pass header
                         // console.log(`received : ${line}`)
                         let xLamb = parseFloat(raw[0]);
                         let yLamb = parseFloat(raw[1]);
@@ -42,17 +42,22 @@ class TreatedParcel{
     
                         // console.log(`lamb: (x:${xLamb} y:${yLamb}) => gps : (lng:${coord.lng} lat:${coord.lat})`)
                         
-                        let enrichedPoint ={
-                            lat: coord.lat,
-                            lng: coord.lng,
-                            height: parseFloat(raw[2]),
-                            thickness: parseFloat(raw[3]),
-                            density: parseFloat(raw[4]),
-                            leafWallArea: parseFloat(raw[5]),
-                            appliedDose: parseFloat(raw[6]),
-                            recupRate: (raw.length>7? parseFloat(raw[7]):0),
+                        if(raw[0]!=="" && raw[1]!=="" && raw[2]!=="" && raw[3]!=="" && raw[4]!=="" && raw[5]!=="" && raw[6]!==""){
+                            
+                        
+                            let enrichedPoint ={
+                                lat: coord.lat,
+                                lng: coord.lng,
+                                height: parseFloat(raw[2]),
+                                thickness: parseFloat(raw[3]),
+                                density: parseFloat(raw[4]),
+                                leafWallArea: parseFloat(raw[5]),
+                                appliedDose: parseFloat(raw[6]),
+                                recupRate: (raw.length>7? parseFloat(raw[7]):0),
+                            }
+                            parcelTrack.push(enrichedPoint)
+
                         }
-                        parcelTrack.push(enrichedPoint)
                     }
                     else{
                         firstLinePassed =true

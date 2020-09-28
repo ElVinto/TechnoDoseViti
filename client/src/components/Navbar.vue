@@ -3,12 +3,15 @@
     <div class ="row">
 
       
-      <router-link to="/" class=" col-md-3 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" >
+      <router-link to="/" class=" col-md-4 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" >
             <b> <p class="text-center"> Accueil </p></b>
       </router-link>
       
-      
-      <div class = "col-md-6" style= "outline-style:solid;" >
+      <router-link to="/InterParcel" class=" col-md-4 nav-link" style= "outline-style:solid; outline-width:1px" > 
+        <b> Variabilité inter-parcellaire et temporelle </b> 
+      </router-link>
+
+      <!-- <div class = "col-md-6" style= "outline-style:solid;" >
         <div class="row nav-link text-white" style="text-align:center;">
           <b> Structure du végétal </b>
         </div>
@@ -20,10 +23,10 @@
             <b> Variabilité inter-parcellaire et temporelle </b> 
           </router-link>
         </div>
-      </div>
+      </div> -->
 
       
-      <router-link to="/ScenTechno" class=" col-md-3 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
+      <router-link to="/ScenTechno" class=" col-md-4 nav-link" style= "outline-style:solid; outline-color:white; outline-width:1px" > 
         <b> Comparaison des scénarios technologiques </b> 
       </router-link>
       
