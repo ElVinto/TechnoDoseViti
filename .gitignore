@@ -3,4 +3,5 @@ client/node_modules
 mapclient
 .DS_Store
 .env
+devInfo
 other
