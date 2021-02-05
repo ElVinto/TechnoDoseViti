@@ -98,7 +98,9 @@ export default {
         LPolyline
     },
 
-    props: ['forecastParams'],
+    props: {
+        feat:String
+    },
 
     data() {
 
